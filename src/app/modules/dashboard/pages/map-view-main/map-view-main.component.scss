@@ -140,3 +140,153 @@
 .bck {
   background-color: #0ab5cc;
 }
+// .overFlow{
+//   overflow-y: scroll;
+// }
+.activeGreen{
+  color: green;
+}
+.activeRed{
+  color:red;
+}
+.temp_sensor {
+  background: url("../../../../../assets/images/temp_sensor_logo.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  
+}
+
+.ph_sensor {   
+  background: url("../../../../../assets/images/Group_67.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.humidity_sensor {
+  background: url("../../../../../assets/images/Group_65.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.alcohol_sensor {
+  background: url("../../../../../assets/images/Group_66.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.temp_logo{
+  background: url('../../../../../assets/images/TemperatureSensor.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: auto;
+  width: auto;   
+}
+.do_sensor{
+  background: url("../../../../../assets/images/Group_66.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.image_container{
+  min-height: 10vh;
+}
+
+.mat-card{
+  padding: 0px !important;
+}
+
+.toggle-style {
+  padding-bottom: 5px;
+  padding-left: 8px;
+  padding-top: 5px;
+  padding-right: 8px;
+}
+
+.sensor-style {
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.color-temp {
+  color: #F6A74B;
+  font-weight: 600;
+  font-size: 2.5em;
+}
+
+.reading-header{
+  padding-top: 5px;
+}
+
+.color-humidity {
+  color: #AD79B4;
+  font-weight: 600;
+  font-size: 2.5em;
+}
+
+.color-ph {
+  color: #28BACF;
+  font-weight: 600;
+  font-size: 2.5em;
+}
+.color-do{
+  color: rgb(121, 97, 231);
+  font-weight: 600;
+  font-size: 2.5em;
+}
+
+.color-alcohol {
+  color: #94B966;
+  font-weight: 600;
+  font-size: 2.5em;
+}
+
+.example-card {
+  border-radius: 5px;
+}
+
+.temp_header{
+  border: 1px #F6A74B solid;
+}
+
+.ph_header {
+  border: 1px #28BACF solid;
+}
+
+.humidity_header {
+  border: 1px #AD79B4 solid;
+}
+
+.alcohol_header {
+  border: 1px #94B966 solid;
+}
+
+.pin {
+  float: right;
+  padding-bottom: 5px;
+  padding-left: 8px;
+  padding-top: 5px;
+}
+
+.pin-logo {
+  background: url('../../../../../assets/images/Path299.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  float: right;
+}
+
+.mat-icon-button {
+  padding: 0;
+  min-width: 0;
+  width: 30px !important;
+  height: 30px !important;
+  flex-shrink: 0;
+  line-height: 40px;
+  border-radius: 50%;
+}

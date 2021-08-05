@@ -33,6 +33,7 @@ import { hammerjs } from "hammerjs";
 import { SensorDataHistoryComponent } from "./components/sensor-data-history/sensor-data-history.component";
 import { MapViewMainComponent } from "./pages/map-view-main/map-view-main.component";
 import { AngularOpenlayersModule } from "ngx-openlayers";
+import { MatTooltipModule } from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { AngularOpenlayersModule } from "ngx-openlayers";
     MaterialModule,
     SharedModule,
     AngularOpenlayersModule,
+    MatTooltipModule,
   ],
   entryComponents: [VideoWindowComponent, GraphComponent],
 })

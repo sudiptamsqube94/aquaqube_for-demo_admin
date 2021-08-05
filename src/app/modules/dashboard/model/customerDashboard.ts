@@ -66,7 +66,7 @@ export interface Sensor {
   reading_time: Date;
 }
 
-export interface Node {
+export interface Nodes {
   node_id: number;
   sensors: Sensor[];
   uid: string;
