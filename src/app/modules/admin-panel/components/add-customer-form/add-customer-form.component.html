@@ -1,0 +1,37 @@
+<div mat-dialog-title>
+    Customer
+</div>
+<div mat-dialog-content>
+    <div class="form-container">
+        <form [formGroup]="customerForm" (ngSubmit)="onSubmit(customerForm)">
+            <div>
+                <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="35px">
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                        <mat-form-field class="form-field">
+                            <input matInput placeholder="Customer Name" formControlName="customer_name">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                        <mat-form-field class="form-field">
+                            <input matInput placeholder="Customer Code" formControlName="customer_code">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                        <mat-form-field class="form-field">
+                            <mat-select placeholder="Customer Type" formControlName="customer_type">
+                                <mat-option *ngFor="let customertype of customerType" [value]="customertype.domain_value">
+                                    {{customertype.domain_value}}
+                                </mat-option>
+                            </mat-select> 
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div mat-dialog-actions mat-elevation-z6>
+                    <button mat-stroked-button type="button" class="cancelbtn" (click)="closeDialog()">Cancel</button>
+                    <span class="example-spacer"></span>
+                    <button mat-raised-button color="primary" type="submit" class="savebtn" [disabled]="customerForm.invalid" [class.blank-panel]="customerForm.invalid">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

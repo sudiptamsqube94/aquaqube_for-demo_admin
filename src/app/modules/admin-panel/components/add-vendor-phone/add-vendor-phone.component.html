@@ -1,0 +1,32 @@
+<div mat-dialog-title>
+    Add Phone
+</div>
+<div mat-dialog-content>
+    <form [formGroup]="PhoneForm" (ngSubmit)="onSubmit(PhoneForm)">
+        <div class="form-container">
+            <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="35px">
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Phone ISD Code</mat-label>
+                        <mat-select placeholder="Choose your ISD Code" formControlName="ph_isd_code">
+                            <mat-option *ngFor="let phnisdcode of phoneisdcode" [value]="phnisdcode.domain_code">
+                                {{phnisdcode.domain_code}} - {{phnisdcode.domain_value}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput placeholder="Type your Phone Number" formControlName="ph_no">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div mat-dialog-actions mat-elevation-z6>
+            <button mat-stroked-button type="button" (click)="CancelOperation()" class="cancelbtn">Cancel</button>
+            <span class="example-spacer"></span>
+            <button mat-raised-button [disabled]="PhoneForm.invalid" [class.blank-panel]="PhoneForm.invalid" type="submit" class="savebtn">Save</button>
+        </div>
+    </form>
+</div>

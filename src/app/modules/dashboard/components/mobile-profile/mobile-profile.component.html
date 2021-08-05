@@ -1,0 +1,59 @@
+<div class="main-content">
+        <div fxLayout="column" class="top-section">
+            <div fxLayout="row" class="profile-cover"></div>
+            <div fxLayout="column">
+                <div fxLayout="row" class="profile-picture">
+                    <img src="https://acc.edu.ai/assets/images/no-staff-image.png">
+                </div>
+                <div  class="profile-info">
+                        <h2>{{customerData.customer_name}}</h2>
+                        <p>{{customerData.customer_type}}</p>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="column" class="sample-Padding">
+            <mat-card class="example-card mat-elevation-z6">
+                <mat-card-header>
+                    <mat-card-title class="card-title">Address</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div *ngFor='let add of customerData.addresses'>
+                        <h3>{{add.add_type}}</h3>
+                        <span>{{add.add_address_line1}}</span><br>
+                        <span>{{add.add_address_line2}}</span><br>
+                        <span>{{add.add_city}} {{add.add_state}}-{{add.add_pin}}</span><br>
+                        <span>{{add.add_country}}</span>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div fxLayout="column" class="sample-Padding">
+            <mat-card class="example-card mat-elevation-z6">
+                <mat-card-header>
+                    <mat-card-title class="card-title">Contact</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <span *ngFor='let mail of customerData.emails'>{{mail.eml_address}}</span><br>
+                    <span *ngFor='let phone of customerData.phones'>({{phone.ph_isd_code}}) - {{phone.ph_no}}</span><br>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div fxLayout="column" class="sample-Padding">
+                <mat-card class="example-card mat-elevation-z6">
+                <mat-card-header>
+                    <mat-card-title class="card-title">Branch</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div *ngFor='let branch of customerData.branches'>
+                        <h3>{{branch.branch_name}}</h3>
+                        <span>{{branch.branch_add_line1}}</span><br>
+                        <span>{{branch.branch_add_line2}}</span><br>
+                        <span>{{branch.branch_add_city}} {{branch.branch_add_state}}-{{branch.branch_add_pin}}</span><br>
+                        <span>{{branch.branch_add_country}}</span>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+<ngx-spinner color="rgba(223,12,95,0.9)" bdOpacity="0.9" type="ball-atom">
+</ngx-spinner>

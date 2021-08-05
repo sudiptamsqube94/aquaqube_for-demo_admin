@@ -1,0 +1,95 @@
+<div fxLayout="row" fxLayoutAlign="start" class="outer-container" *ngIf="isDesktop">
+    <div fxFlex="40%" class="image-container">
+        <img src="../../assets/images/login.png" class="login-photo">
+    </div>
+    <div fxFlex="60%">
+        <div class="login-panel" [style.height.%]="100">
+            <div fxLayout="column" fxLayoutGap=10px fxLayoutAlign="start" [style.height.%]="100">
+                <div fxFlex="0 1 calc(30% - 10px)" fxLayout="row" fxLayoutAlign="center">
+                    <div class="login-banner" fxFlex="60">
+                        <img src="../../assets/images/QM-LogoAW[PNG].svg" class="login-image-desktop" alt="banner">
+                    </div>
+                </div>
+                <div fxFlex="0 1 calc(70% - 10px)">
+                    <div class="container" fxLayout="column">
+                        <div fxFlex="30%" class="avatar-container">
+                            <div class="avatar">
+                            </div>
+                        </div>
+                        <div fxFlex="70%">
+                            <form [formGroup]="loginForm">
+                                <div class="form-container">
+                                    <div fxLayout="column" fxLayoutGap="10px">
+                                        <div fxFlex="20%">
+                                            <mat-form-field class="form-field">
+                                                <mat-label>User Name</mat-label>
+                                                <input type="text" matInput placeholder="Type user name here" formControlName="user_name">
+                                            </mat-form-field>
+                                        </div>
+                                        <div fxFlex="20%">
+                                            <mat-form-field class="form-field">
+                                                <mat-label>Password</mat-label>
+                                                <input type="password" matInput placeholder="Type password here" formControlName="user_password">
+                                            </mat-form-field>
+                                        </div>
+                                        <div fxFlex=20%>
+                                            <button mat-flat-button class="login-button" [disabled]="loginForm.invalid" [class.blank-panel]="loginForm.invalid" (click)="onSubmit(loginForm)">Login</button>
+                                        </div>
+                                        <div fxFlex="10%">
+                                            <p style="color: #00aec6">Forgot Password?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="isMobile || isTablet">
+    <div class="mobile-outer-container">
+        <div fxLayout="column" fxLayoutGap=10px fxLayoutAlign="start" [style.height.%]="100">
+            <div fxFlex="0 1 calc(30% - 10px)" fxLayout="row" fxLayoutAlign="center" class="banner-container">
+                <div class="mobile-login-banner" fxFlex="60">
+                    <img src="../../assets/images/QubeMaticsIcon.svg" class="login-image" alt="banner">
+                </div>
+            </div>
+            <div fxFlex="0 1 calc(70% - 10px)">
+                <div class="container" fxLayout="column">
+                    <div fxFlex="10%" class="avatar-container">
+                        <!-- <div class="avatar">
+                        </div> -->
+                    </div>
+                    <div fxFlex="80%">
+                        <form [formGroup]="loginForm">
+                            <div class="form-container">
+                                <div fxLayout="column" fxLayoutGap="10px">
+                                    <div fxFlex="20%">
+                                        <mat-form-field class="form-field">
+                                            <mat-label>User Name</mat-label>
+                                            <input type="text" matInput placeholder="Type user name here" formControlName="user_name">
+                                        </mat-form-field>
+                                    </div>
+                                    <div fxFlex="20%">
+                                        <mat-form-field class="form-field">
+                                            <mat-label>Password</mat-label>
+                                            <input type="password" matInput placeholder="Type password here" formControlName="user_password">
+                                        </mat-form-field>
+                                    </div>
+                                    <div fxFlex=20%>
+                                        <button mat-flat-button class="login-button" [disabled]="loginForm.invalid" [class.blank-panel]="loginForm.invalid" (click)="onSubmit(loginForm)">Login</button>
+                                    </div>
+                                    <div fxFlex="10%">
+                                        <p style="color: #00aec6">Forgot Password?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

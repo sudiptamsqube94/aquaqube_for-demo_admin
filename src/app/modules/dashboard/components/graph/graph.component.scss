@@ -1,0 +1,117 @@
+.graph {
+    height: 300px !important;
+    width: 100%;
+    overflow: visible;
+    margin-bottom: 55px;
+}
+
+.calendar{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.modal-close-button{
+    float: right;
+    padding-right: 5px;
+}
+
+.form-field {
+    width: 100%;
+}
+
+.cancelbtn {
+    border-color: #df0c5f !important;
+    color: #df0c5f !important;
+}
+
+.savebtn {
+    background-color: #df0c5f !important;
+    color: white !important;
+}
+
+.form-container {
+    padding: 10px 10px 0px 10px !important;
+}
+
+.material-button{
+    padding: 2px 10px !important;
+    margin: 0px !important;
+    border: 0px !important;
+    background-color: white !important;
+    text-align: start !important;
+}
+
+.material-list-button{
+    padding: 0px 10px !important;
+    margin: 0px !important;
+    border: 1px solid lightgray !important;
+    background-color: white !important;
+    text-align: start !important;
+}
+
+.material-option{
+    padding: 0px !important;
+}
+
+.material-option-name{
+    padding-top: 10px;
+}
+
+.material-listitem-name{
+    padding-top: 5px;
+}
+
+.material-option-button{
+    padding-top: 8px;
+}
+
+.material-listitem-button{
+    padding-top: 2px;
+}
+
+
+.material-panel {
+    height: 98% !important;
+    border: 3px solid #b576b1;
+}
+
+.panel-header {
+    background-color: #b576b1;
+    border-radius: 0px;
+    color: white;
+}
+
+.panel-header:hover {
+    background-color: #b576b1 !important;
+}
+
+.material-list-header{
+    color: #b576b1;
+}
+
+.mat-line-icons{
+    padding-top: 5px !important;
+}
+
+.modal-close-button{
+    float: right;
+    padding-right: 5px;
+}
+
+.divider *{
+    color: #00CED1;
+}
+
+.divider{
+    color: #00CED1;
+}
+
+.sensor-details {
+    border: 1px black solid;
+    padding: 10px;
+}
+
+.button-view {
+    background:#7772A1;
+    color: azure;
+}

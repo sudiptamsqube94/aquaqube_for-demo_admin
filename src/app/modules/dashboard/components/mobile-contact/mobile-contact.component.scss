@@ -1,0 +1,38 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container {
+    width: 100%;
+  }
+  .example-card {
+    width: calc(100vw - 60px) !important;
+    margin: 30px;
+    position: absolute;
+    top: 10vh;
+  }
+  .main-content{
+    height: calc(100vh - 120px);
+    background: linear-gradient(135deg, rgba(225,30,98,1) 35%, rgba(41,34,104,1) 100%);
+  }
+
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .form-control{
+      height: 30px;
+  }
+  .form-control-text{
+    height: 80px;
+  }
+  .Submit-button{
+      text-align: center;
+  }
+  .card-title{
+      text-align: center;
+  }
+  .btn-submit{
+    background: linear-gradient(135deg, rgba(225,30,98,1) 35%, rgba(41,34,104,1) 100%);
+  }

@@ -1,0 +1,14 @@
+.main-content{
+    overflow-y:scroll;
+    max-height: calc(100vh - 350px);
+    table{
+        width: 100%;
+    }
+}
+.paginator{
+    float: left;
+}
+
+.mat-paginator-range-label {
+    margin: 0px !important;
+}

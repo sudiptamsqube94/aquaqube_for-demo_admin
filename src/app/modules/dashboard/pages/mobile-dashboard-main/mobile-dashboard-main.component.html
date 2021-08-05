@@ -1,0 +1,97 @@
+<!-- <div class="mobile-view-container">
+    <div class="mobile-main-content">
+        <div fxLayout="column" fxLayoutAlign="none">
+            <div fxFlex="40%">
+                xadsdadad
+            </div>
+            <div fxFlex="60%">
+                dadadasda
+            </div>
+        </div>
+    </div>
+</div> -->
+<div fxLayout="column" fxLayoutAlign="none" [style.height.%]="100" fxLayoutGa="16px">
+    <div fxFlex="40%" class="box">
+        
+    </div>  
+    <div fxFlex="60%" class="card-container">
+        <div fxLayout="row wrap" fxLayoutAlign="start" [style.height.%]="100">
+            <div fxFlex="calc(33.33% - 16px)" class="card-container">
+                <mat-card class="example-card" (click)="branch()">
+                    <div fxLayout="column" class="card-border">
+                        <div fxFlex="60%" class="card-details">
+                            <mat-icon class="card-icon">rooms</mat-icon>
+                        </div>
+                        <div fxFlex="40%" class="card-caption">
+                                Branch
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+            <div fxFlex="calc(33.33% - 16px)" class="card-container">
+                <mat-card class="example-card" (click)="device()">
+                    <div fxLayout="column" class="card-border">
+                        <div fxFlex="60%" class="card-details">
+                            <mat-icon class="card-icon">device_hub</mat-icon>
+                        </div>
+                        <div fxFlex="40%" class="card-caption">
+                            Device
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+            <div fxFlex="calc(33.33% - 16px)" class="card-container">
+                <mat-card class="example-card" (click)="notification()">
+                    <div fxLayout="column" class="card-border">
+                        <div fxFlex="60%" class="card-details">
+                            <mat-icon class="card-icon">add_alert</mat-icon>
+                        </div>
+                        <div fxFlex="40%" class="card-caption">
+                          <span>Notification</span>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+            <div fxFlex="calc(33.33% - 16px)" class="card-container">
+                <mat-card class="example-card">
+                    <div fxLayout="column" class="card-border">
+                        <div fxFlex="60%" class="card-details">
+                            <mat-icon class="card-icon">search</mat-icon>
+                        </div>
+                        <div fxFlex="40%" class="card-caption">
+                            Search
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+            <div fxFlex="calc(33.33% - 16px)" class="card-container">
+                <mat-card class="example-card" (click)="contactUs()">
+                    <div fxLayout="column" class="card-border">
+                        <div fxFlex="60%" class="card-details">
+                            <mat-icon class="card-icon">contact_support</mat-icon>
+                        </div>
+                        <div fxFlex="40%" class="card-caption">
+                            Contact Us
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+            <div fxFlex="calc(33.33% - 16px)" class="card-container">
+                <mat-card class="example-card" (click)="profile()">
+                    <div fxLayout="column" class="card-border">
+                        <div fxFlex="60%" class="card-details">
+                            <mat-icon class="card-icon">account_circle</mat-icon>
+                        </div>
+                        <div fxFlex="40%" class="card-caption">
+                            Profile
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+<ngx-spinner color="rgba(223,12,95,0.9)" bdOpacity="0.9" type="ball-atom">
+</ngx-spinner>
+
+

@@ -1,0 +1,24 @@
+<mat-card class="example-card-inner mat-elevation-z8" matRipple>
+    <div fxLayout="row" fxLayoutGap="20px" (click)="goToGraph()">
+        <div fxFlex="10%" class="card-details">
+            <img *ngIf="sensorType==1" class="sensor" src="../../../../../assets/images/temp_sensor_logo.svg">
+            <img *ngIf="sensorType==6" class="sensor" src="../../../../../assets/images/Group_67.svg">
+            <img *ngIf="sensorType==2" class="sensor" src="../../../../../assets/images/Group_67.svg">
+            <img *ngIf="sensorType==3" class="sensor" src="../../../../../assets/images/Group_66.svg">
+            <img *ngIf="sensorType==4" class="sensor" src="../../../../../assets/images/Group_66.svg">
+            <img *ngIf="sensorType==5" class="sensor" src="../../../../../assets/images/Group_65.svg">
+        </div>
+        <div fxFlex="30%" class="card-caption" *ngIf="!!sensor.sensor_model">
+            <span>{{sensor.sensor_model}}</span>
+        </div>
+        <div fxFlex="60%" class="card-caption"[class.greenClass]="currentReading > minValue && maxValue> currentReading" [class.redClass]="minValue > currentReading"  [class.redClass]="currentReading > maxValue">
+            <span class="reading" *ngIf="sensorType==1">{{currentReading | temperaturePipe: 'C'}}</span>
+            <span class="reading" *ngIf="sensorType==5">{{currentReading}}%</span>
+            <span class="reading" *ngIf="sensorType==4">{{currentReading}}%</span>
+            <span class="reading" *ngIf="sensorType==2">{{currentReading}}</span>
+            <span class="reading" *ngIf="sensorType==3">{{currentReading}}ppm</span>
+            <span class="reading" *ngIf="sensorType==6">{{currentReading}}Amp</span><br>
+            <span class="sensorDate">{{currentTime | date:'medium'}}</span>
+        </div>
+    </div>
+</mat-card>

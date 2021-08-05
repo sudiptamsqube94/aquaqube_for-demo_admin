@@ -1,0 +1,24 @@
+.footer-toolbar{
+    height: 30px;
+    min-height: 30px;
+    background-color:#2a2e33;
+    color: whitesmoke;
+    border-top:white solid 0.5px;
+    font-weight: 400;
+    font-size: 0.8em;
+    mat-toolbar-row{
+        height: 30px;
+        font-size:100%;
+    }
+    overflow: hidden;
+    border-top: 0px;
+}
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+  }
+a
+{
+    text-decoration: none;
+    color:white;
+    font-weight:bold;
+}

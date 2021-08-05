@@ -1,0 +1,36 @@
+<div mat-dialog-title>
+    Advance Search
+</div>
+<div mat-dialog-content>
+    <form [formGroup]="AdvanceSearchForm" (ngSubmit)="onSubmit(AdvanceSearchForm)">
+        <div class="form-container">
+            <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="5px">
+                <div fxFlex="0 1 calc(33.3% - 5px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Select Vendor</mat-label>
+                        <mat-select placeholder="Choose your Vendor" formControlName="vendor">
+                            <mat-option *ngFor="let vendor of allVendor" [value]="vendor.vendor_name">
+                                {{vendor.vendor_name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="0 1 calc(33.3% - 5px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Select Customer</mat-label>
+                        <mat-select placeholder="Choose your Customer" formControlName="customer">
+                            <mat-option *ngFor="let customer of allCustomer" [value]="customer.customer_name">
+                                {{customer.customer_name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div mat-dialog-actions mat-elevation-z6>
+            <button mat-stroked-button type="button" (click)="CancelOperation()" class="cancelbtn">Cancel</button>
+            <span class="example-spacer"></span>
+            <button mat-raised-button [disabled]="AdvanceSearchForm.invalid" [class.blank-panel]="AdvanceSearchForm.invalid" type="submit" class="savebtn">Save</button>
+        </div>
+    </form>
+</div>

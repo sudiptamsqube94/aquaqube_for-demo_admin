@@ -1,0 +1,41 @@
+<mat-expansion-panel disabled expanded class="customer-panel">
+    <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title class="panel-title">
+            Branches
+        </mat-panel-title>
+        <mat-panel-description>
+            <div class="search-bar-container">
+                <mat-icon class="search-icon">search</mat-icon>
+                <input class="search-bar" autocomplete="off" matInput
+                    placeholder="Search Branch">
+            </div>
+            <span class="example-spacer"></span>
+            <!-- <div class="download-icon">
+                <mat-icon>get_app</mat-icon>
+            </div> -->
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="main-content">
+        <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="50%" fxLayoutGap="10px" fxLayoutAlign="center center">
+                Branch
+            </div>
+            <div fxFlex="50%" fxLayoutGap="10px" fxLayoutAlign="center center">
+                Segments
+            </div>
+        </div>
+        <hr>
+        <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="50%">
+                <div *ngFor="let branch of branches">
+                    <button class="btn-class-one" mat-button [class.backgroundChangeOne]="branch.branch_id==branchClick" (click)="getBranch(branch.branch_id)">{{branch.branch_name}}</button>
+                </div>
+            </div>
+            <div fxFlex="50%">
+                <div *ngFor="let segment of segments">
+                    <button class="btn-class-two" mat-button [class.backgroundChangeTwo]="segment.segment_id==segmentClick" (click)="getGateway(segment)">{{segment.segment_name}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-expansion-panel>

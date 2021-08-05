@@ -1,0 +1,49 @@
+<div mat-dialog-title>
+    Device Information
+</div>
+<div mat-dialog-content>
+    <form [formGroup]="adddeviceForm">
+        <div class="form-container">
+            <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="35px">
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Gateway Name</mat-label>
+                        <input matInput placeholder="Type Gateway Name" formControlName="gateway_name">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Gateway Mac Address</mat-label>
+                        <input matInput placeholder="Type Gateway MAC Address Here" formControlName="uid">
+                    </mat-form-field>
+                </div>
+            </div>
+            <span class="divider" fxLayout="row">Add Nodes <hr fxFlex/></span>
+            <br>
+            <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="35px">
+                <div fxFlex="0 1 calc(100%)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-chip-list #chipList aria-label="Sensors">
+                            <mat-chip *ngFor="let node of nodeList" [selectable]="selectable" [removable]="removable" (removed)="remove(node)">
+                                {{node.uid}}
+                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                            </mat-chip>
+                            <input matInput placeholder="Nodes" class="form-field" #sensorInput [matChipInputFor]="chipList"[matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matAutocomplete]="autoSensor" formControlName="sensors">
+                        </mat-chip-list>
+                        <mat-autocomplete #autoSensor="matAutocomplete" (optionSelected)="select($event)">
+                            <mat-option *ngFor="let node of nodeOptions" [value]="node">
+                                {{node.uid}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div mat-dialog-actions mat-elevation-z6>
+                <button mat-stroked-button type="button" class="cancelbtn" (click)="closeDialog()">Cancel</button>
+                <span class="example-spacer"></span>
+                <button mat-raised-button color="primary" type="submit" class="savebtn" [disabled]="adddeviceForm.invalid" [class.blank-panel]="adddeviceForm.invalid" (click)="onSubmit(adddeviceForm)">Save</button>
+            </div>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,40 @@
+<div mat-dialog-title>
+    Vendor
+</div>
+<div mat-dialog-content>
+    <div class="form-container">
+        <form [formGroup]="vendorForm" (ngSubmit)="onSubmit(vendorForm)">
+            <div>
+                <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="35px">
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                        <mat-form-field class="form-field">
+                            <input matInput placeholder="Vendor Name" formControlName="vendor_name">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                        <mat-form-field class="form-field">
+                            <input matInput placeholder="Vendor Code" formControlName="vendor_code">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                        <mat-form-field class="form-field">
+                          <mat-select placeholder="Vendor Type" formControlName="vendor_type">
+                            <!-- <mat-option *ngFor="let customertype of custometType" [value]="customertype.domain_value">
+                              {{customertype.domain_value}}
+                            </mat-option> -->
+                            <mat-option value="Private">Private</mat-option>
+                            <mat-option value="Public">Public</mat-option>
+                            <mat-option value="Government">Government</mat-option>
+                          </mat-select> 
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div mat-dialog-actions mat-elevation-z6>
+                    <button mat-stroked-button type="button" class="cancelbtn" (click)="closeDialog()">Cancel</button>
+                    <span class="example-spacer"></span>
+                    <button mat-raised-button color="primary" type="submit" class="savebtn" [disabled]="vendorForm.invalid" [class.blank-panel]="vendorForm.invalid">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

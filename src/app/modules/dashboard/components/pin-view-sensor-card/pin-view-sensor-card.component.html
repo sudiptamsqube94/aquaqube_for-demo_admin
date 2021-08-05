@@ -1,0 +1,34 @@
+<mat-expansion-panel disabled expanded class="customer-panel">
+    <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title class="panel-title">
+            {{sensor.toUpperCase()}}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="main-content">
+        <div class="wraper">
+        <div *ngIf=" sensor == 'temperature'" fxLayout="column" fxLayoutGap="10px">
+            <div class="graph" fxFlex="80">
+                <ngx-charts-line-chart [scheme]="colorScheme" [results]="single" [gradient]="gradient" [xAxis]="showXAxis"
+                [yAxis]="showYAxis" [legend]="showLegend" [trimXAxisTicks]="trimXAxisTicks"
+                [maxXAxisTickLength]="maxXAxisTickLength" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel"
+                [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [referenceLines]="referenceLines"
+                [showRefLines]="showRefLines" [showRefLabels]="showRefLabels" [autoScale]="autoScale"
+                [roundDomains]="roundDomains" [xScaleMax]="xScaleMax" [xScaleMin]="xScaleMin" [yScaleMin]="yScaleMin" [yScaleMax]="yScaleMax"
+                (select)="onSelect($event)" [legendPosition]="legendPosition">
+
+                </ngx-charts-line-chart>
+            </div>
+            <div fxFlex="20">
+
+            </div>
+        </div>
+        <div *ngIf=" sensor == 'humidity' ">
+            humidity
+        </div>
+        <div *ngIf=" sensor == 'alcohol'">
+            alcohol
+        </div>
+    </div>
+    </div>
+</mat-expansion-panel>
+<br>

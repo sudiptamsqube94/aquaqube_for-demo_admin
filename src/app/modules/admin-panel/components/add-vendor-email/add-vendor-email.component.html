@@ -1,0 +1,22 @@
+<div mat-dialog-title>
+    Add New Email
+</div>
+<div mat-dialog-content>
+    <form [formGroup]="EmailForm" (ngSubmit)="onSubmit(EmailForm)">
+        <div class="form-container">
+            <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="5px">
+                <div fxFlex="0 1 calc(33.3% - 5px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Email Address</mat-label>
+                        <input matInput placeholder="Type your Email Address" formControlName="eml_address">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div mat-dialog-actions mat-elevation-z6>
+            <button mat-stroked-button type="button" (click)="CancelOperation()" class="cancelbtn">Cancel</button>
+            <span class="example-spacer"></span>
+            <button mat-raised-button [disabled]="EmailForm.invalid" [class.blank-panel]="EmailForm.invalid" type="submit" class="savebtn">Save</button>
+        </div>
+    </form>
+</div>

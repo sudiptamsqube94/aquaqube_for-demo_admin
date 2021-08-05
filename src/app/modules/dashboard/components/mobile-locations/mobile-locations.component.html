@@ -1,0 +1,16 @@
+<div fxLayout="column" fxLayoutAlign="none" [style.height.%]="100" class="location-background">
+    <div fxFlex="8%" class="box-title">
+        <h4>Branches</h4>
+    </div>
+    <div fxFlex="92%" class="box">
+        <mat-divider></mat-divider>
+        <mat-list>
+            <mat-list-item *ngFor="let branch of branches" class="list-items" (click)="getBranch(branch)">
+                {{branch.branch_name}}
+                <mat-divider></mat-divider>
+            </mat-list-item>
+        </mat-list>
+    </div>  
+</div>
+<ngx-spinner color="rgba(223,12,95,0.9)" bdOpacity="0.9" type="ball-atom">
+</ngx-spinner>

@@ -1,0 +1,27 @@
+<div fxLayout="column" class="box">
+    <div fxFlex="10%">
+        <button mat-icon-button (click)="goBack()" class="back_button">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </div>
+    <div fxFlex="10%">
+        <span class="sample-right">
+            Graph
+        </span>
+        <mat-slide-toggle class="sample-right" (change)="sensorHistory($event.checked)" [checked]="checked">
+        </mat-slide-toggle>
+        <span class="sample-right">
+            Data 
+        </span>
+    </div>
+    <div fxFlex="80%">
+        <div *ngIf="sensorDataHistory">
+            <app-graph-mobile [sensor_Type]="sensor_Type" [sensor_model]="sensor_model" [node_uid]="node_uid" [threshold]="threshold">
+            </app-graph-mobile>
+        </div>
+        <div *ngIf="!sensorDataHistory">
+            <app-sensor-data-history [sensor_Type]="sensor_Type" [sensor_model]="sensor_model" [node_uid]="node_uid">
+            </app-sensor-data-history>
+        </div>
+    </div>
+</div>

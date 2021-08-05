@@ -1,0 +1,26 @@
+<mat-expansion-panel disabled expanded class="customer-panel">
+    <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title>
+            <div fxFlex='30' style="padding-top:1%; padding-left:2%; padding-bottom:1%;font-weight: regular;">Device Monitor</div>
+            <!-- <div fxFlex='40' class='searchbar'>
+                <mat-icon fxFlex='10'>search</mat-icon>
+                <input fxFlex='50' class='filterclass' matInput (keyup)="applyFilter($event.target.value)"
+                    placeholder="Search Device" style="color:white;">
+            </div> -->
+            <div fxFlex='28' style="padding-top:2%;"></div>
+            <!-- <div fxFlex='2'>
+                <mat-icon fxFlex='100' style="color:white;">get_app</mat-icon>
+            </div> -->
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="main-content">
+        <ag-grid-angular style="width: 100%; height: 100%;" [columnDefs]="columnDefs" [rowData]="deviceHealth" class="ag-theme-balham" [paginationAutoPageSize]="true" [pagination]="true" [defaultColDef]="defaultcolDefs"
+        (gridReady)="onDeviceGridReady($event)" (cellValueChanged)="onCellValueChange($event)" [frameworkComponents]="frameworkComponents">
+
+        </ag-grid-angular>
+    </div>
+    <mat-action-row class="action-row-content">
+        <span class="example-spacer"></span>
+        <button mat-icon-button><mat-icon></mat-icon></button>
+    </mat-action-row>
+</mat-expansion-panel>

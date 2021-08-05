@@ -1,0 +1,67 @@
+<div mat-dialog-title>
+    {{title}}
+</div>
+<div mat-dialog-content>
+    <div class="form-container">
+        <form [formGroup]="branchForm">
+            <div>
+                <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="35px">
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <input placeholder="Branch Name" matInput formControlName="branch_name">
+                                </mat-form-field>
+                    </div>
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <input placeholder="Address line 1" matInput formControlName="branch_add_line1">
+                                </mat-form-field>
+                    </div>
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <input placeholder="Address line 2" matInput formControlName="branch_add_line2">
+                                </mat-form-field>
+                    </div>
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <input placeholder="City" matInput formControlName="branch_add_city">
+                                </mat-form-field>
+                    </div>
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <input placeholder="State" matInput formControlName="branch_add_state">
+                                </mat-form-field>
+                    </div>
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <input placeholder="Pin/Zip code" matInput formControlName="branch_add_pin">
+                                </mat-form-field>
+                    </div>
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <mat-select placeholder="Country" formControlName="branch_add_country">
+                                        <mat-option *ngFor="let countrycode of countryCode" [value]="countrycode.domain_value">
+                                            {{countrycode.domain_value}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                    </div>
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                        <mat-form-field class="form-field">
+                            <input placeholder="Latitude" matInput formControlName="branch_latt">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                        <mat-form-field class="form-field">
+                            <input placeholder="Longitude" matInput formControlName="branch_long">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <mat-action-row>
+                    <button mat-stroked-button type="button" (click)="closeDialog()" class="cancelbtn">Cancel</button>
+                    <span class="example-spacer"></span>
+                    <button mat-raised-button class="savebtn" (click)="onSubmit(branchForm)" [disabled]="branchForm.invalid" [class.blank-panel]="branchForm.invalid">Save</button>
+                </mat-action-row>
+            </div>
+        </form>  
+    </div>
+</div>

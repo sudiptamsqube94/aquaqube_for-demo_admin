@@ -1,0 +1,17 @@
+.box{
+    padding: 16px;
+    background-color: rgb(212, 212, 212);
+    height: calc(100vh - 120px);
+}
+
+.back_button{
+    background: linear-gradient(135deg, rgba(225,30,98,1) 35%, rgba(41,34,104,1) 100%);
+    color: #fff;
+}
+.graphs{
+    overflow-y: scroll;
+}
+.sample-right{
+    float: right;
+    margin: 5px;
+}

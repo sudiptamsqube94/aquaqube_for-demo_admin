@@ -1,0 +1,17 @@
+<mat-card class="example-card mat-elevation-z6">
+        <mat-card-header>
+            <mat-card-title class="card-title">NODE{{node.uid}}<span class="gateway-font" *ngIf="gateway!=null">{{gateway}}</span></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div fxLayout="column" fxLayoutAlign="none" fxLayoutGa="16px">
+                <div fxFlex="30%" class="box">
+
+                </div>
+                <div fxFlex="70%" class="box">
+                        <div  *ngFor='let sensor of node.sensors'>
+                            <app-sensor-mobile [sensor]="sensor" [branch_id]="branch_id" [autoRefresh]="autoRefresh" [nodeUid]="node.uid"></app-sensor-mobile>
+                        </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>

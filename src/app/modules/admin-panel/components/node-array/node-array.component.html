@@ -1,0 +1,47 @@
+<mat-expansion-panel disabled expanded class="node-array-panel">
+    <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title>
+            <div fxFlex='30' style="padding-top:1%; padding-left:2%; padding-bottom: 1%; font-weight: regular;">Nodes</div>
+            <div fxFlex='28' style="padding-top:2%;"></div>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="main-content">
+        <table mat-table class="main-table" [dataSource]="dataSource">
+            <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>Select</th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-radio-button [value]="element.node_id" [checked]="element.node_id === selectedNode.node_id" (click)="viewNode(element)"></mat-radio-button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="uid">
+                <th mat-header-cell *matHeaderCellDef>Node Name</th>
+                <td mat-cell *matCellDef="let element">{{element.uid}}</td>
+            </ng-container>
+            <ng-container matColumnDef="data_collection_frequency">
+                <th mat-header-cell *matHeaderCellDef>Data Collection Freq.</th>
+                <td mat-cell *matCellDef="let element">{{element.data_collection_frequency}}</td>
+            </ng-container>
+            <ng-container matColumnDef="data_sending_frequency">
+                <th mat-header-cell *matHeaderCellDef>Data Sending Freq.</th>
+                <td mat-cell *matCellDef="let element">{{element.data_sending_frequency}}</td>
+            </ng-container>
+            <!-- <ng-container matColumnDef="view_node">
+                <th mat-head-cell *matHeaderCellDef>View</th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button>
+                        <mat-icon>visibility</mat-icon>
+                    </button>
+                </td>
+            </ng-container> -->
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let element">
+                    <span *ngIf="element.status == 0">Not Assigned</span>
+                    <span *ngIf="element.status == 1">Assigned</span>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</mat-expansion-panel>

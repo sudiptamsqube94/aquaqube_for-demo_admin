@@ -1,0 +1,7 @@
+<div style="padding: 16px">
+    <div fxLayout="row wrap" class="sample-padding" fxLayoutAlign="start">
+        <div fxFlex="100%" class="graph" *ngFor="let graph of graphPins">
+            <app-graph-pin [graph]="graph"></app-graph-pin>
+        </div>
+    </div>
+</div>

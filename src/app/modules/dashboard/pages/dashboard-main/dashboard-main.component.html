@@ -1,0 +1,26 @@
+<div class="container">
+    <div fxLayout="row" fxLayoutAlign="end center">
+        <div fxFlex="10">
+            <button mat-raised-button (click)="mapview()" class="button-view">Map View</button>
+        </div>
+      </div>
+    <div fxLayout="column" fxLayoutGap="10px" [style.height.%]="100">
+        <div fxFlex="50">
+            <div fxLayout="row" fxLayout.lt-sm="column" [style.height.%]="100" fxLayoutGap="10px">
+                <div fxFlex="calc(40% - 10px)" fxFlex.lt-sm="100%">
+                    <app-customer-branch-details [customerAssignData]="customerAssignData" (ButtonClick)="getDeviceId($event)" (DeviceData)="getDeviceData($event)" (DeviceList)="getDeviceList($event)"></app-customer-branch-details>
+                </div>
+                <div fxFlex="60" fxFlex.lt-sm="100%">
+                    <!-- <app-customer-branch-device-details [CurrentReading]="currentReading" [sensordata] = "sensorValue" [deviceName] = "deviceName" [deviceData]="deviceData" (sensorType)="getType($event)" (deviceMac)="getMac($event)" (videoClicked)="openVideo($event)"></app-customer-branch-device-details> -->
+                    <app-device-list [customerAssignData]="customerAssignData" (Buttonclick)="getDeviceId($event)" (EmitMac)=getMac($event) [deviceList]="DeviceList" (SensorList)="getSensorData($event)"></app-device-list>
+                </div>
+            </div>
+        </div>
+        <div fxFlex="50" class="graph">
+            <!-- <app-graph (NewReading)="ShowReading($event)" [sensorType]="sensorType"></app-graph> -->
+            <app-customer-branch-device-details [CurrentReading]="currentReading" [sensordata] = "sensorValue" [deviceName] = "deviceName" [nodeList]="SensorList" [deviceData]="deviceData" [deviceMac]="deviceMac" (sensorType)="getType($event)"  (videoClicked)="openVideo($event)" (EmitSenseorValue)="sensorDetails($event)"></app-customer-branch-device-details>
+        </div>
+    </div>
+</div>
+<ngx-spinner color="rgba(223,12,95,0.9)" bdOpacity="0.9" type="ball-atom">
+</ngx-spinner>

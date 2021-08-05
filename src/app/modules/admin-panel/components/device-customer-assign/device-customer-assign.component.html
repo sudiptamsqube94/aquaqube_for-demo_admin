@@ -1,0 +1,146 @@
+<!-- <div mat-dialog-title>
+    Device Assignment
+</div>
+<div mat-dialog-content>
+    <div class="form-container">
+        <form [formGroup]="customerAssignForm">
+            <div>
+                <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="35px">
+                            <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <mat-label>Device Name</mat-label>
+                                    <input matInput placeholder="Type Device Name" [readonly]=true formControlName="device_name">
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <mat-label>Select customer</mat-label>
+                                    <mat-select placeholder="select customer" formControlName="customer_name" (selectionChange)="onSelectionChange($event)">
+                                        <mat-option *ngFor="let customer of customerData" [value]="customer">
+                                        {{customer.customer_name}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <mat-label>Select branch</mat-label>
+                                    <mat-select formControlName="customer_branch_name">
+                                        <mat-option *ngFor="let branch of branchData" [value]="branch.branch_name">
+                                        {{branch.branch_name}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt.sm="100%">
+                                <mat-form-field class="form-field">
+                                    <mat-label>Unit Name</mat-label>
+                                    <input matInput placeholder="Type Unit Name" formControlName="branch_unit">
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <input matInput [matDatepicker]="picker" placeholder="Allocation start date" formControlName="device_assign_effective_from">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <input matInput [matDatepicker]="picker2" placeholder="Allocation end date" formControlName="device_assign_effective_to">
+                                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker2></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                </div>
+                <div mat-dialog-actions mat-elevation-z6>
+                    <button mat-stroked-button type="button" class="cancelbtn" (click)="closeDialog()">Cancel</button>
+                    <span class="example-spacer"></span>
+                    <button mat-raised-button type="submit" class="savebtn" [disabled]="customerAssignForm.invalid" [class.blank-panel]="customerAssignForm.invalid" (click)="onSubmit(customerAssignForm)">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div> -->
+<div mat-dialog-title>
+    {{title}}
+</div>
+<div mat-dialog-content>
+    <form [formGroup]="customerAssignForm">
+        <div class="form-container">
+            <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="35px">
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Select customer</mat-label>
+                        <mat-select placeholder="select customer" formControlName="customer" (selectionChange)="onSelectionChange($event)">
+                            <mat-option *ngFor="let customer of customerData" [value]="customer">
+                            {{customer.customer_name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Select branch</mat-label>
+                        <mat-select formControlName="branch">
+                            <mat-option *ngFor="let branch of branchData" [value]="branch">
+                            {{branch.branch_name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Segment Name</mat-label>
+                        <input matInput placeholder="Type Unit Name" formControlName="branch_unit">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <input matInput [matDatepicker]="picker" placeholder="Allocation start date" formControlName="gateway_assign_effective_from">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <input matInput [matDatepicker]="picker2" placeholder="Allocation end date" formControlName="gateway_assign_effective_to">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <span class="divider" fxLayout="row">Add Gateway <hr fxFlex/></span>
+            <br>
+            <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="35px">
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Select gateway</mat-label>
+                        <mat-select placeholder="select gateway" formControlName="gateway" (selectionChange)="onGatewaySelectionChange($event)">
+                            <mat-option *ngFor="let g of gateways" [value]="g">
+                            {{g.gateway_name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="selectedGateway && selectedGateway.gateway_id > 0" [style.height.vh]="45">
+                <span class="divider" fxLayout="row">Gateway Informations<hr fxFlex/></span>
+                <br>
+                <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="10px">
+                    <div fxFlex="0 1 calc(50% - 10px)" fxFlex.lt-sm="100%">
+                        <app-node-array [nodes]="gatewayNodes" (selected)="getSelectedNode($event)"></app-node-array>
+                    </div>
+                    <div fxFlex="0 1 calc(50% - 10px)" fxFlex.lt-sm="100%">
+                        <app-sensor-array-view [node]="selectedNode"></app-sensor-array-view>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div mat-dialog-actions mat-elevation-z6>
+            <button mat-stroked-button type="button" class="cancelbtn" (click)="closeDialog()">Cancel</button>
+            <span class="example-spacer"></span>
+            <button mat-stroked-button color="primary" type="submit" class="savebtn" [disabled]="customerAssignForm.invalid" [class.blank-panel]="customerAssignForm.invalid" (click)="onSubmit(customerAssignForm)">Save</button>
+        </div>
+    </form>
+</div>

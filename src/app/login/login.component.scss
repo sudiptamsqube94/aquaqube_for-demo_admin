@@ -1,0 +1,86 @@
+.photo-container{
+    height: 100%;
+    background-color: white;
+}
+// .image-container{
+//     background-image: url("../../assets/images/login.png");
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     background-position: center;
+//     width: 100%;
+//     height: inherit;
+// }
+
+.outer-container{
+    height: calc(100vh - 30px);
+}
+
+.login-photo{
+    max-height: 100%;
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+}
+
+.login-panel{
+    background: white
+}
+
+.login-banner{
+    text-align: center
+}
+
+.login-image{
+    max-width: 100%;
+    width: 100%;
+    max-height: 50%;
+    height: 40%;
+}
+
+.login-image-desktop{
+    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
+}
+
+.container{
+    height: 100%;
+    text-align: center;
+    padding: 60px;
+}
+
+.avatar{
+    border-radius: 50%; /* the magic */
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    text-align: center;
+    background: grey;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-image: url("../../assets/images/man.svg")
+}
+
+.avatar-container{
+    text-align: center;
+}
+
+.login-button{
+    background: #DF0C5F;
+    color: white
+}
+
+.mobile-outer-container{
+    background: white;
+    height: calc(100vh - 30px);
+}
+
+.mobile-login-banner{
+    position: relative;
+    top: 40%;
+    height: inherit;
+}
+
+.banner-container{
+    height: 100%;
+}

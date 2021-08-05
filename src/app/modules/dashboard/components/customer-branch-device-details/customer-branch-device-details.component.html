@@ -1,0 +1,77 @@
+<mat-expansion-panel class="detail-panel" expanded disabled>
+    <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title class="sample-padding">
+            Device Details
+        </mat-panel-title>
+        <button mat-icon-button (click)="openVideo()"><div class="video-icon" [style.height.px]="24" [style.width.px]="24"></div></button>
+    </mat-expansion-panel-header>
+    <div>
+        <div>
+            <div fxLayout="column" fxLayoutGap="5px">
+            <!-- <div class="main-content" fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start"
+                style="padding-left: 2%; padding-top: 2%;"> -->
+                <!-- <div fxFlex="70%">
+                    <div fxFlex='100' style="font-weight: bold;">Device Name : <b>{{deviceName}}</b></div><br>
+                    <button mat-icon-button (click)="openVideo()"><mat-icon class="video">videocam</mat-icon></button>
+                </div>
+                <div *ngFor="let sensor of sensordata" style="padding-right: 20px;">
+                    <div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start" class="sensor-details">
+                        <div fxFlex="20"><mat-slide-toggle
+                            class="example-margin"
+                            [color]="color"
+                            [checked]="checked"
+                            [disabled]="disabled" class="toggle" (change)="getSensorId($event,sensor.sensor_type)">
+                        </mat-slide-toggle></div>
+                        <div fxFlex="20">Sensor Name : <b>{{sensor.sensor_name}}</b></div>
+                        <div fxFlex="20">Sensor type : <b>{{sensor.sensor_type}}</b></div>
+                        <div fxFlex="20">Reading : <b>{{temp}}</b></div>
+                        <div fxFlex="20">Timestamp : <b>{{ time | date:'medium' }}</b></div>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                <div fxFlex="30">
+                    
+                </div> -->
+                <!-- <div fxFlex="10" class="device-name-video">
+                    <div fxFlex='100' class="device-name"></div><br>
+                    <div class="video-button">
+                        <button mat-icon-button (click)="openVideo()"><div class="video-icon" [style.height.px]="24" [style.width.px]="24"></div></button>
+                    </div>
+                </div> -->
+                <div fxFlex="90" style="padding: 20px">
+                    <div fxLayout="row wrap" fxLayoutGap="10px">
+                        <div fxFlex="0 1 calc(25% - 10px)" *ngFor="let sensor of sensors; let i=index"  class="mat-elevation-z5">
+                            <app-sensor-card [sensor]="sensor" [nodeUid]="nodeList.uid" [cardNo]="i" (PinValue)="pinValue($event)"></app-sensor-card>
+                        </div>
+                        <!-- <div fxFlex="calc(25 - 10px)">
+
+                        </div>
+                        <div fxFlex="calc(25 - 10px)">
+                            
+                        </div>
+                        <div fxFlex="calc(25 - 10px)">
+                            
+                        </div> -->
+                    </div>
+                </div>
+                <div fxFlex="10">
+                    <div class="chip">
+                        <mat-chip-list #chipList aria-label="sensor type">
+                            <mat-chip *ngFor="let sensoptype of pinValueSet" [removable]="removable" [selectable]="selectable" (removed)="remove(sensoptype)">
+                                <span *ngIf="sensoptype === 1">Temperature</span>
+                                <span *ngIf="sensoptype === 2">pH</span>
+                                <span *ngIf="sensoptype === 3">Dissolved Oxygen</span>
+                                <span *ngIf="sensoptype === 4">Alcohol</span>
+                                <span *ngIf="sensoptype === 5">Humidity</span>
+                                <span *ngIf="sensoptype === 6">Current</span>
+                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                            </mat-chip>
+                            <button mat-raised-button class="view-all-button" *ngIf="pinValueSet.size > 0" (click)="viewAllSensorvalue()">View All</button>
+                        </mat-chip-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-expansion-panel>

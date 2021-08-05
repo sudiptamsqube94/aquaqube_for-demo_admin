@@ -1,0 +1,26 @@
+<mat-expansion-panel disabled expanded class="device-panel" [class.blank-panel]="device.device_id === 0">
+    <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title>
+            Device Details
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="main-content">
+        <ag-grid-angular style="width: 100%; height: 100%;" class="ag-theme-balham" [paginationAutoPageSize]="true" [pagination]="true"
+        [rowData]="sensors"[columnDefs]="sensorColumnDefs" (gridReady)="onSensorGridReady($event)" (cellValueChanged)="onCellValueChange($event)" [frameworkComponents]="nullvalueFrameworkComponents">
+
+        </ag-grid-angular>
+    </div>
+    <mat-action-row>
+        <span class="example-spacer"></span>
+        <button mat-icon-button>
+            <mat-icon class="mat-icons-round md-dark md-inactive md-24">
+                edit
+            </mat-icon>
+        </button> &nbsp;
+        <button mat-icon-button (click)="InitializeClick(18)" [disabled]="device.device_id === 0">
+            <mat-icon class="mat-icons-round md-pinkV md-24">
+                add_circle
+            </mat-icon>
+        </button>
+    </mat-action-row>
+</mat-expansion-panel>

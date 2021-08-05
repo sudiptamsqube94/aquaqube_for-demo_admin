@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="view-container">
+  <app-header *ngIf="userDetails.user_id != 0 && isDesktop"></app-header>
+  <app-mobile-top-nav-bar *ngIf="userDetails.user_id != 0 && userDetails.user_type == 'customer' && isMobile"></app-mobile-top-nav-bar>
+  <div class="main-content">
+    <div class="main-flex" fxLayout="row" fxLayoutAlign="flex-strat">
+      <div class="main-content-flex">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <app-footer class="footer" *ngIf="isDesktop"></app-footer>
+  <app-mobile-bottom-nav-bar *ngIf="userDetails.user_id !=0 && userDetails.user_type == 'customer' && isMobile"></app-mobile-bottom-nav-bar>
+</div>

@@ -1,0 +1,49 @@
+.device-panel {
+    height: 98%;
+    //border: 3px solid #EC6D9F;
+}
+
+.panel-header {
+    background-color: #EC6D9F;
+    border-radius: 0px;
+    color: white !important;
+}
+
+.panel-header:hover {
+    background-color: #A970AF !important;
+}
+
+.main-content {
+    height: calc(100vh - 240px);
+    overflow: auto;
+}
+
+.add-button {
+    line-height: 24px;
+    height: 24px;
+}
+
+.action-row-content {
+    line-height: 24px;
+    height: 24px;
+}
+
+.searchbar {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 0.5%;
+}
+
+.filterclass {
+    background: none;
+    border: none;
+    position: relative;
+    bottom: 2%;
+    width: 100%;
+    font-weight: regular;
+}
+
+
+.main-table{
+    width: 100%;
+}

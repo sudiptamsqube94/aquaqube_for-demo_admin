@@ -1,0 +1,66 @@
+<div mat-dialog-title>
+    {{title}}
+</div>
+<div mat-dialog-content>
+    <div class="form-container">
+        <form [formGroup]="addressForm">
+            <div>
+                <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="35px">
+                            <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <mat-select placeholder="Address Type" formControlName="add_type">
+                                        <mat-option *ngFor="let addtype of getAddressType" [value]="addtype.domain_value">
+                                            {{addtype.domain_value}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <input placeholder="Address line 1" matInput formControlName="add_address_line1">
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <input placeholder="Address line 2" matInput formControlName="add_address_line2">
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <input placeholder="City" matInput formControlName="add_city">
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <input placeholder="State" matInput formControlName="add_state">
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <input placeholder="Pin/Zip code" matInput formControlName="add_pin">
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-form-field class="form-field">
+                                    <mat-select placeholder="Country" formControlName="add_country">
+                                        <mat-option *ngFor="let countrycode of countryCode" [value]="countrycode.domain_value">
+                                            {{countrycode.domain_value}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                                <mat-checkbox formControlName="default_value">
+                                    Make It Default Address ?
+                                </mat-checkbox>
+                            </div>
+                </div>
+                <mat-action-row>
+                    <button mat-stroked-button type="button" (click)="closeDialog()" class="cancelbtn">Cancel</button>
+                    <span class="example-spacer"></span>
+                    <button mat-raised-button class="savebtn" [disabled]="addressForm.invalid" [class.blank-panel]="addressForm.invalid" (click)="onSubmit(addressForm)">Save</button>
+                </mat-action-row>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+.graph {
+    height: 200px !important;
+    width: 100%;
+    overflow: visible;
+    margin-bottom: 55px;
+}
+.customer-panel {
+    height: 50% !important;
+    //border: 3px solid #66CEDD;
+}
+
+.panel-header {
+    background-color: #0AB5CC;
+    border-radius: 0px;
+    color: white;
+}
+
+.panel-header:hover {
+    background-color: #0AB5CC !important;
+}
+
+
+.panel-title{
+    padding-top: 6px;
+}
+
+.main-content {
+    height: 100%;
+    overflow: auto;
+}
+
+.wraper{
+    padding: 16px
+}

@@ -1,0 +1,47 @@
+<div fxLayout="column" fxLayoutGap="10px" [style.height.%]="100">
+    <div fxFlex="calc(5% - 10px)" class="no-margin">
+        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="calc(5% - 10px)">
+            <div fxFlex="10">
+                <button mat-raised-button (click)="mapview()" class="button-view">Back</button>
+            </div>
+            <div  fxFlex="40">
+                <mat-card class="mapcard" [class.alert-card]="incident_count > 0" (click)="onCardClick()">
+                    <div fxLayout="row" fxLayoutGap="3px" [style.height.%]="100" [style.width.%]="100">
+                      <div fxFlex="0 1 calc(40% - 3px)" class="incident-pin-logo"></div>
+                      <div fxFlex="0 1 calc(60% - 3px)" fxLayout="column" fxLayoutGap="3px" fxLayoutAlign="center center">
+                        <div fxFlex="0 1 calc(40%)" [style.fontSize.%]="85" fxLayoutAlign="center center">
+                        
+                        </div>
+                        <div fxFlex="0 1 calc(60%)" [style.fontSize.%]="200" fxLayoutAlign="center center">
+                          <b></b>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-card>
+            </div>
+          </div>
+    </div>
+    <div fxFlex="calc(95% - 10px)">
+      <div fxFlex="calc(100% - 10px)">
+        <mat-card class="mapcard">
+          <mat-card-content [style.height.%]="100">
+            <aol-map #map [width]="'100%'" [height]="'100%'">
+              <aol-interaction-default></aol-interaction-default>
+              <aol-control-defaults></aol-control-defaults>
+              <aol-view [zoom]="zoom">
+                <aol-coordinate [x]="88.4386" [y]="22.625" [srid]="'EPSG:4326'"></aol-coordinate>
+              </aol-view>
+              <aol-layer-tile>
+                <aol-source-osm></aol-source-osm>
+              </aol-layer-tile>
+            </aol-map>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <!-- <div id="tooltip" class="tooltip-style">
+      <div class="tooltip-header"></div>
+      <div class="tooltip-body"></div>
+    </div>
+    <div id="ev-tooltip" class="ev-tooltip-style"></div> -->
+    </div>

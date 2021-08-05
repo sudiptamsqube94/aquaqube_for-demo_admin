@@ -1,0 +1,25 @@
+<mat-toolbar class="header">
+    <mat-toolbar-row>
+        <span><img src="../../../assets/images/QM-LogoAW[PNG].png" class="logo"></span>
+        <span class="example-spacer"></span>
+        <!-- <button mat-icon-button><mat-icon class="example-icon" aria-hidden="false" aria-label="notification">mail</mat-icon></button>
+        <span style="padding: 8px">|</span>
+        <button mat-icon-button><mat-icon class="example-icon" aria-hidden="false" aria-label="notification" [matMenuTriggerFor]="">notification_important</mat-icon></button>
+        <span style="padding: 8px">|</span>
+        <button mat-icon-button><mat-icon class="example-icon" aria-hidden="false" aria-label="account" [matMenuTriggerFor]="menu">account_circle</mat-icon></button> -->
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+        <mat-icon>home</mat-icon>
+        <span>account</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>settings</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        <span>logout</span>
+    </button>
+</mat-menu>

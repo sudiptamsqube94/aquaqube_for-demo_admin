@@ -1,0 +1,63 @@
+<div mat-dialog-title>
+    Sensor Information
+</div>
+<div mat-dialog-content>
+    <form [formGroup]="sensorForm">
+        <div class="form-container">
+            <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="35px">
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Sensor Type</mat-label>
+                        <mat-select placeholder="Select Sensor Type Here" formControlName="sensor_type">
+                            <mat-option *ngFor="let type of sensorType" [value]="type.domain_code">
+                                {{type.domain_value}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Sensor Model</mat-label>
+                        <input matInput placeholder="Type Sensor Model Here" formControlName="sensor_model">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Sensor Maker</mat-label>
+                        <input matInput placeholder="Type Sensor Maker Here" formControlName="sensor_make">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Threshold Maximum</mat-label>
+                        <input matInput type="number" placeholder="Type Sensor Threshold Max" formControlName="sensor_threshold_max">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Threshold Minimum</mat-label>
+                        <input type="number" matInput placeholder="Type Sensor Threshold Min" formControlName="sensor_threshold_min">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="0 1 calc(33.3% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Calibration Time</mat-label>
+                        <input type="number" matInput placeholder="Type DO sensor calibration Min" formControlName="calibration_time">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="35px">
+                <div fxFlex="0 1 calc(66.6% - 35px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <textarea matInput placeholder="Write Sensor Description Here" formControlName="sensor_desc"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div mat-dialog-actions mat-elevation-z6>
+            <button mat-stroked-button type="button" class="cancelbtn" (click)="closeDialog()">Cancel</button>
+            <span class="example-spacer"></span>
+            <button mat-stroked-button color="primary" type="submit" class="savebtn" [disabled]="sensorForm.invalid" [class.blank-panel]="sensorForm.invalid" (click)="onSubmit(sensorForm)">Save</button>
+        </div>
+    </form>
+</div>

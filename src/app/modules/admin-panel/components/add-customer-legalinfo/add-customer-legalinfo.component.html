@@ -1,0 +1,32 @@
+<div mat-dialog-title>
+    Add Legal Information
+</div>
+<div mat-dialog-content>
+    <form [formGroup]="LegalInfoForm" (ngSubmit)="onSubmit(LegalInfoForm)">
+        <div class="form-container">
+            <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start" fxLayoutGap="5px">
+                <div fxFlex="0 1 calc(33.3% - 5px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Legal Info Type</mat-label>
+                        <mat-select placeholder="Choose your Legal Info Type" formControlName="legalinfo_type">
+                            <mat-option *ngFor="let legalinfo of legalinfotype" [value]="legalinfo.domain_value">
+                                {{legalinfo.domain_value}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="0 1 calc(33.3% - 5px)" fxFlex.lt-sm="100%">
+                    <mat-form-field class="form-field">
+                        <mat-label>Value</mat-label>
+                        <input matInput placeholder="Type your Legal Info Value" formControlName="legalinfo_value">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div mat-dialog-actions mat-elevation-z6>
+            <button mat-stroked-button type="button" (click)="CancelOperation()" class="cancelbtn">Cancel</button>
+            <span class="example-spacer"></span>
+            <button mat-raised-button [disabled]="LegalInfoForm.invalid" [class.blank-panel]="LegalInfoForm.invalid" type="submit" class="savebtn">Save</button>
+        </div>
+    </form>
+</div>

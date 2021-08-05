@@ -1,0 +1,12 @@
+<mat-expansion-panel disabled expanded class="customer-panel" [class.blank-panel]="customer.customer_id === 0">
+    <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title>
+            Customer Assignment History
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="main-content">
+        <ag-grid-angular style="width: 100%; height: 100%;" class="ag-theme-balham" [paginationAutoPageSize]="true" [pagination]="true" [rowData]="rowData" [columnDefs]="customerColumnDefs" (gridReady)="onAssignCustomerGridReady($event)" [frameworkComponents]="frameworkComponents">
+
+        </ag-grid-angular>
+    </div>
+</mat-expansion-panel>

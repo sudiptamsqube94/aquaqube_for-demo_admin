@@ -1,0 +1,35 @@
+<div class="main-Contain">
+    <div class="notification-card">
+        <mat-card class="example-card mat-elevation-z6"
+            *ngFor="let notification of notifications">
+            <!-- <mat-card-header>
+                <mat-card-title class="card-title">
+                    <span>{{notification.node_uid}}</span><br><span class="date">{{notification.time | date:'medium' }}</span></mat-card-title>
+            </mat-card-header> -->
+            <mat-card-content (click)="getNotificationDetails(notification)">
+                <div fxLayout="row" fxLayoutGap="20px">
+                    <div fxFlex="10%">
+                        <img *ngIf="notification.sensor_type==1" class="sensor"
+                            src="../../../../../assets/images/temp_sensor_logo.svg">
+                        <img *ngIf="notification.sensor_type==2" class="sensor" src="../../../../../assets/images/Group_67.svg">
+                        <img *ngIf="notification.sensor_type==3" class="sensor" src="../../../../../assets/images/Group_66.svg">
+                        <img *ngIf="notification.sensor_type==4" class="sensor" src="../../../../../assets/images/Group_66.svg">
+                        <img *ngIf="notification.sensor_type==5" class="sensor" src="../../../../../assets/images/Group_65.svg">
+                    </div>
+                    <div fxFlex="45%">
+                        <span>NODE{{notification.node_uid}}</span>
+                    </div>
+                    <div fxFlex="45%">
+                        <span class="reading">Current reading:{{notification.reading}}</span><br>
+                        <span class="date">Time:{{notification.time | date:'medium' }}</span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <div class="loadMore">
+            <span (click)="sync()">Load more...</span>
+        </div>
+    </div>
+</div>
+<ngx-spinner color="rgba(223,12,95,0.9)" bdOpacity="0.9" type="ball-atom">
+</ngx-spinner>

@@ -1,0 +1,70 @@
+export const environment = {
+  production: true,
+  createCustomerUrl : "http://34.93.22.112:8000/api/qubematics/customer/create/",
+   updateCustomerUrl : "http://34.93.22.112:8000/api/qubematics/customer/update/",
+   getAllCustomerUrl : "http://34.93.22.112:8000/api/qubematics/customer/getall/?format=json",
+   getACustomerUrl : "http://34.93.22.112:8000/api/qubematics/customer/getacustomer/",
+   getdomainUrl : "http://35.200.162.115:8006/qiidomain/get/",
+
+   postSupportUrl:"http://34.93.22.112:8000/api/qubematics/customer/createsupport/",
+  //////////////////////////////////////////////////////////////////////////
+   getCustomerBranchUrl : "http://34.93.22.112:8000/api/qubematics/customer/getbranch/",
+   getCustomerBranchUrlforMobile : "http://34.93.22.112:8000/api/qubematics/customer/getbranch/customerid/",
+   getCustomerandIdUrl : "http://34.93.22.112:8000/api/qubematics/customer/getcustomerandid/",
+  //////////////////////////contact us//////////////////////////////////
+  getNodeUrl:"http://34.93.22.112:8002/api/qubematics/gateway/getallnodes/customer/",
+  
+
+  /////////////////////////////////////////////////////////////////////////
+   createDeviceUrl : "http://34.93.22.112:8002/api/qubematics/gateway/create/",
+   updateDeviceUrl : "http://34.93.22.112:8002/api/qubematics/gateway/update/",
+   getAllDeviceUrl : "http://34.93.22.112:8002/api/qubematics/gateway/getall/?format=json",
+  //  getAssignInfoUrl : "http://34.93.22.112:8002/api/qubematics/gateway/assignInfo/",
+   deviceAliveUrl : "http://34.93.22.112:8002/api/qubematics/gateway/alive/",
+   assignDevice : "http://34.93.22.112:8002/api/qubematics/gateway/assign/",
+   getDeviceHealthUrl : "http://34.93.22.112:8002/api/qubematics/gateway/getdevicehealth/?format=json",
+   updateFreqUrl : "http://34.93.22.112:8002/api/qubematics/gateway/updatefreq/",
+   getADevice :  "http://34.93.22.112:8002/api/qubematics/gateway/get/",
+   createNodeUrl:'http://34.93.22.112:8002/api/qubematics/gateway/createnode/',
+   createSensorUrl:'http://34.93.22.112:8002/api/qubematics/gateway/createsensor/',
+   getallSensorUrl : 'http://34.93.22.112:8002/api/qubematics/gateway/getallsensors/',
+   updateSensorUrl : 'http://34.93.22.112:8002/api/qubematics/gateway/updatesensor/',
+   getallGatewayUrl : 'http://34.93.22.112:8002/api/qubematics/gateway/getallgateway/',
+   createGatewayUrl : 'http://34.93.22.112:8002/api/qubematics/gateway/creategateway/',
+   updateGatewayUrl : 'http://34.93.22.112:8002/api/qubematics/gateway/updategateway/',
+   getallNodesUrl : 'http://34.93.22.112:8002/api/qubematics/gateway/getallnodes/',
+   updateNodeUrl : 'http://34.93.22.112:8002/api/qubematics/gateway/updatenode/',
+   getSensorsByStatus : 'http://34.93.22.112:8002/api/qubematics/gateway/getsensorsbystatus/',
+   getNodeByStatus : 'http://34.93.22.112:8002/api/qubematics/gateway/getnodesbystatus/',
+   getGatewayByStatus :'http://34.93.22.112:8002/api/qubematics/gateway/gatewaybystatus/',
+   assignedGatewayUrl :'http://34.93.22.112:8002/api/qubematics/gateway/createassignedgateway/',
+   getAllAssignedInfo : 'http://34.93.22.112:8002/api/qubematics/gateway/getallassignedgateway/',
+   //getAllNodesByBranchUrl :'http://34.93.22.112:8002/api/qubematics/gateway/getallnodes/customer/branch/',
+   getAllNodesByBranchUrl :'http://34.93.22.112:8002/api/qubematics/gateway/gatewaydetails/segment/',
+   getSensorsByNodeUidUrl : "http://34.93.22.112:8002/api/qubematics/gateway/getsensor/nodeuid/",
+   summaryViewUrl : "http://34.93.22.112:8002/api/qubematics/gateway/allnodescount/",
+
+   getAllVendorUrl : "http://34.93.22.112:8001/api/qubematics/vendor/getall/?format=json",
+   postVendorUrl : "http://34.93.22.112:8001/api/qubematics/vendor/create/?format=json",
+   vendorUpdateUrl : "http://34.93.22.112:8001/api/qubematics/vendor/update/",
+   getAvendorUrl : "http://34.93.22.112:8001/api/qubematics/vendor/getavendor/",
+   getVendorNameIdUrl : "http://34.93.22.112:8001/api/qubematics/vendor/vendornameid/?format=json",
+   createVendorManage : "http://34.93.22.112:8001/api/qubematics/vendor/vendormanage/",
+   assignMentHistory : "http://34.93.22.112:8001/api/qubematics/vendor/gethistory/",
+   customerManageUrl : "http://34.93.22.112:8001/api/qubematics/vendor/customerassign/",
+   //graphUrl : "http://127.22.112:8086/query?db=sensor&q=select*from",
+   dataGraphUrl : "http://34.93.221.249:8086/query?db=sensorReading&q=select * from DeviceSensorReading where sensor_type='\"",
+   nodeDataUrl : "http://34.93.221.249:8086/query?db=sensorReading&q=",
+   getNotification: "http://34.93.221.249:8086/query?db=sensorReading&q=",
+   getNotificationDetails:"http://34.93.22.112:8002/api/qubematics/gateway/getalldetails/node/",
+   //login url
+   postLoginUrl : "http://34.93.22.112:8003/api/qubematics/authuser/",
+
+   customerdeviceAssignUrl : "http://34.93.22.112:8002/api/qubematics/gateway/deviceassign/",
+   //get all gateway,node,sensor
+   //GetAllGateWayNodeSensonUrl:"http://34.93.22.112:8002/api/qubematics/gateway/getallgateway/customerid/",
+   GetAllGateWayNodeSensonUrl:"http://34.93.22.112:8002/api/qubematics/gateway/gatewaydetails/segment/customer/",
+   //qm domian sensor type
+   getSensorTypeUrl : "http://34.93.22.112:8004/qmdomain/get/sensor",
+   getIndustryTypeUrl :'http://34.93.22.112:8004/qmdomain/get/industry',
+};

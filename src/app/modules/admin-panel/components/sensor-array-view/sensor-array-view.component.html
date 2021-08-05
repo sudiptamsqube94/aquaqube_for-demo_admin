@@ -1,0 +1,52 @@
+<mat-expansion-panel disabled expanded class="node-array-panel">
+    <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title>
+            <div fxFlex='30' style="padding-top:1%; padding-left:2%; padding-bottom: 1%; font-weight: regular;">Sensors</div>
+            <div fxFlex='28' style="padding-top:2%;"></div>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class=main-content>
+        <table mat-table class="main-table" [dataSource]="dataSource">
+            <!-- <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>Select</th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-radio-button value="element.sensor_id" [checked]="element.sensor_id === selectedSensor.sensor_id" (click)="viewSensor(element)"></mat-radio-button>
+                </td>
+            </ng-container> -->
+            <ng-container matColumnDef="sensor_type">
+                <th mat-header-cell *matHeaderCellDef>Type</th>
+                <td mat-cell *matCellDef="let element">
+                    <span *ngIf="element.sensor_type == 1">Temperature</span>
+                    <span *ngIf="element.sensor_type == 2">pH</span>
+                    <span *ngIf="element.sensor_type == 3">Dessolved Oxygen</span>
+                    <span *ngIf="element.sensor_type == 4">Alcohol</span>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="sensor_model">
+                <th mat-header-cell *matHeaderCellDef>Model</th>
+                <td mat-cell *matCellDef="let element">{{element.sensor_model}}</td>
+            </ng-container>
+            <ng-container matColumnDef="sensor_make">
+                <th mat-header-cell *matHeaderCellDef>Maker</th>
+                <td mat-cell *matCellDef="let element">{{element.sensor_make}}</td>
+            </ng-container>
+            <ng-container matColumnDef="sensor_threshold_max">
+                <th mat-header-cell *matHeaderCellDef>Maximum</th>
+                <td mat-cell *matCellDef="let element">{{element.sensor_threshold_max}}</td>
+            </ng-container>
+            <ng-container matColumnDef="sensor_threshold_min">
+                <th mat-header-cell *matHeaderCellDef>Minimum</th>
+                <td mat-cell *matCellDef="let element">{{element.sensor_threshold_min}}</td>
+            </ng-container>
+            <ng-container matColumnDef="sensor_status">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let element">
+                    <span *ngIf="element.sensor_status == 0">Not Assigned</span>
+                    <span *ngIf="element.sensor_status == 1">Assigned</span>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedCloumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedCloumns;"></tr>
+        </table>
+    </div>
+</mat-expansion-panel>

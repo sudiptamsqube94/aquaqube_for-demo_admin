@@ -1,0 +1,38 @@
+<div fxLayout="column" class="box" [style.height.%]="100">
+    <div fxFlex="10%">
+        <button mat-icon-button (click)="goBack()" class="back_button">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </div>
+    <div fxFlex="90%">
+        <mat-card class="examplecard mat-elevation-z6">
+            <mat-card-header>
+                <mat-card-title class="card-title">NODE{{notification.node_uid}}<br><span class="date">Time:{{notification.time | date:'medium' }}</span></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <div fxFlex="10%" fxLayoutGap="10px">
+                        <img *ngIf="notification.sensor_type==1" class="sensor"
+                            src="../../../../../assets/images/temp_sensor_logo.svg">
+                        <img *ngIf="notification.sensor_type==2" class="sensor"
+                            src="../../../../../assets/images/Group_67.svg">
+                        <img *ngIf="notification.sensor_type==3" class="sensor"
+                            src="../../../../../assets/images/Group_66.svg">
+                        <img *ngIf="notification.sensor_type==4" class="sensor"
+                            src="../../../../../assets/images/Group_66.svg">
+                        <img *ngIf="notification.sensor_type==5" class="sensor"
+                            src="../../../../../assets/images/Group_65.svg">
+                    </div>
+                    <div fxFlex="90%" class="sample-padding">
+                        <span class="padding-span">Branch: {{detail.branch_name}}</span><br>
+                        <span class="padding-span">Segment: {{detail.segment_name}}</span><br>
+                        <span class="padding-span">Current reading:{{notification.reading}}<br></span>
+                        <span *ngIf="notification.tmax">Max threshold: {{notification.tmax}}<br></span>
+                        <span class="padding-span" *ngIf="!notification.tmax">Max threshold: Not Set<br></span>
+                        <span class="padding-span">Min threshold: {{notification.tmin}}</span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

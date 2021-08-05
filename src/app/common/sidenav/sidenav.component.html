@@ -1,0 +1,28 @@
+<mat-nav-list class="sidenav-container" (drag)="onSidenavToggle()">
+    <a mat-list-item (click)="onSidenavToggle()">
+        <span class="example-spacer"></span>
+        <mat-icon *ngIf="sidenavOpen" class="material-icons-round chevron">chevron_left</mat-icon>
+        <mat-icon *ngIf="!sidenavOpen" class="material-icons-round chevron">chevron_right</mat-icon>
+    </a>
+
+    <!-- <a mat-list-item routerLink="/home">
+        <mat-icon class="material-icons-round">network_check</mat-icon><span class="nav-caption">DashBoard</span>
+    </a> -->
+    <div *ngFor="let navitem of sidenavData0">
+        <a [class.selected]="navitem.displayName === selectedNavItem" mat-list-item routerLink={{navitem.redirectLink}} (click)="selectedNavItem = navitem.displayName">
+            <mat-icon class="material-icons-round">dashboard</mat-icon><span class="nav-caption">{{navitem.displayName}}</span>
+        </a>
+    </div>
+
+    <div *ngFor="let navitem of sidenavData1">
+        <a [class.selected]="navitem.displayName === selectedNavItem" mat-list-item routerLink={{navitem.redirectLink}} (click)="selectedNavItem = navitem.displayName">
+            <mat-icon class="material-icons-round">supervisor_account</mat-icon><span class="nav-caption">{{navitem.displayName}}</span>
+        </a>
+    </div>
+
+    <div *ngFor="let navitem of sidenavData2">
+        <a [class.selected]="navitem.displayName === selectedNavItem" mat-list-item routerLink={{navitem.redirectLink}} (click)="selectedNavItem = navitem.displayName">
+            <mat-icon class="material-icons-round">devices</mat-icon><span class="nav-caption">{{navitem.displayName}}</span>
+        </a>
+    </div>
+</mat-nav-list>

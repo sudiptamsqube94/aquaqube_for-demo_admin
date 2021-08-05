@@ -1,0 +1,41 @@
+.filterclass {
+    background: none;
+    border: none;
+    position: relative;
+    bottom: 2%;
+    width: 100%;
+    font-weight: regular;
+}
+
+.searchbar {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 0.5%;
+}
+
+.mat-row:nth-child(odd){
+    background-color:#F0FAFC;
+}
+.customer-panel{
+    height: 98%;
+    //border: 3px solid #00AEC6;
+}
+
+.panel-header {
+    background-color: #00AEC6;
+    border-radius: 0px;
+    color: white !important;
+}
+
+.panel-header:hover {
+    background-color: #00AEC6 !important;
+}
+
+.main-content {
+    height: calc(100vh - 240px);
+    overflow: auto;
+}
+
+.main-table{
+    width: 100%;
+}

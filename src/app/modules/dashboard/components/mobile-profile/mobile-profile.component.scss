@@ -1,0 +1,77 @@
+.panel-header{
+    background-color:#6183FF;
+    color:white;
+}
+.profile-cover{
+    width: 100%;
+    height: 30vh;
+    padding: 0;
+    border: 2px solid #F1F1F1;
+    background: linear-gradient(135deg, rgba(225,30,98,1) 35%, rgba(41,34,104,1) 100%);
+}
+
+.profile-cover {
+    height: calc(30vh) !important;
+}
+
+.cover-image{
+    height: 100% !important;
+}
+
+.customer-panel{
+    width: 100vw;
+    
+}
+.profile-picture img{
+    width: 140px;
+    height: 140px;
+    //left: calc((100vw/2) - 75px) !important;;
+    //top: 25vh;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #F1F1F1;
+    margin: 0%;
+}
+.profile-picture{
+    padding-left: 16px;
+    margin-top: -60px;
+}
+.top-section{
+    padding: 0%;
+}
+.profile-info{
+    float:left;
+    padding-left: 20px;
+    padding-top: 0px;
+    position: relative;
+    left: 150px;
+    margin-top: -70px;
+}
+.profile-info h2{
+    margin:0%;
+}
+.profile-info p{
+    margin-top:0%;
+}
+.main-content{
+    height: calc(100vh - 120px);
+    width: 100vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
+}
+.profile-Content{
+    padding: 16px;
+}
+.example-card{
+    padding: 16px;
+    border-radius:10px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+.sample-Padding{
+    padding-top: 20px;
+}
+.card-title{
+    margin-left: -16px;
+}

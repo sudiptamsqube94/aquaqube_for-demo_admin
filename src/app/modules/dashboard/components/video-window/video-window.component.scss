@@ -1,0 +1,37 @@
+.space{
+    float: right;
+    padding: 5px
+}
+
+.content{
+    height: 315px;
+    width: 560px;
+    resize: both;
+    overflow: auto;
+}
+
+.icon{
+    padding-bottom: 10px
+}
+
+iframe{
+    width: inherit;
+    height: inherit;
+}
+
+.title{
+    text-align: center;
+    background-color: #00CED1;
+    color: white;
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px
+}
+
+.space{
+    float: right;
+}
+
+.header{
+    text-align: center
+}

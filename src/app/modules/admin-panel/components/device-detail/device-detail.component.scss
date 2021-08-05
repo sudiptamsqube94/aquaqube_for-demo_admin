@@ -1,0 +1,28 @@
+.device-panel {
+    height: 96%;
+    //border: 3px solid #EC6D9F;
+}
+
+.panel-header {
+    background-color: #EC6D9F;
+    border-radius: 0px;
+    color: white !important;
+}
+
+.panel-header:hover {
+    background-color: #A970AF !important;
+}
+
+.main-content {
+    height: 100%;
+}
+
+.add-button {
+    line-height: 24px;
+    height: 24px;
+}
+
+.action-row-content {
+    line-height: 24px;
+    height: 24px;
+}

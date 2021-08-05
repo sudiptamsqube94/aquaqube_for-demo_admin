@@ -1,0 +1,79 @@
+.customer-panel {
+    height: 100% !important;
+    //border: 3px solid #66CEDD;
+}
+
+.panel-header {
+    background-color: #E01E60;
+    border-radius: 0px;
+    color: white;
+}
+
+.panel-header:hover {
+    background-color: #E01E60 !important;
+}
+
+table {
+    width: 100%;
+}
+
+.search-bar {
+    background: none;
+    border: none;
+    width: 100%;
+}
+
+.search-bar-container{
+    display: inline-flex;
+    height: 35px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    height: 30px;
+    width: 70%;
+    .search-icon{
+        padding-top: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+}
+
+.panel-title{
+    padding-top: 6px;
+}
+
+.download-icon{
+    padding-top: 3px;
+}
+
+.main-content {
+    height: 100%;
+    overflow: auto;
+}
+
+.mat-row:nth-child(odd){
+    background-color:#FDEFF4;
+}
+
+.mat-row .mat-icon{
+    color: orange;
+    font-size: 40px;
+}
+
+.mat-row .notok{
+    color: black;
+    font-size: 40px;
+}
+
+.healthOk {
+    background: url('../../../../../assets/images/Group_68.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.healthNotOk {
+    background: url('../../../../../assets/images/Group_62.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
