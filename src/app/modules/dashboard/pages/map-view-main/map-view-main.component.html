@@ -236,9 +236,9 @@
                             <div>
                                 <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 1"  class="color-temp"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading | tempPipe}}</span></div>
                                 <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 6" class="color-ph"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}} Amp</span></div>
-                                <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 3" class="color-do"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div>
+                                <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 3" class="color-do"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}mg/L</span></div>
                                 <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 4" class="color-alcohol"><span [class.activeRed]=" (sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div>
-                                <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 2" class="color-ph"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)">{{sensor.current_reading}}%</span></div>
+                                <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 2" class="color-ph"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)">{{sensor.current_reading}}</span></div>
                                 <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 5" class="color-humidity" ><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div><br>
                                 <span>{{sensor.reading_time | date:'medium'}}</span>
                             </div>
@@ -246,7 +246,7 @@
                     </div>
                     <div class="toggle-style" style="background-color: #94B966" [style.marginTop.px]="10" [style.width.%]="100">
                       <mat-slide-toggle (change)="history(data, $event.checked)"  [checked]="checked">
-                        Show threshold bridge history
+                        Show alert history
                       </mat-slide-toggle>
                   </div>
                 </mat-card-content>
