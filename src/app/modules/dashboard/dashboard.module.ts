@@ -34,6 +34,7 @@ import { SensorDataHistoryComponent } from "./components/sensor-data-history/sen
 import { MapViewMainComponent } from "./pages/map-view-main/map-view-main.component";
 import { AngularOpenlayersModule } from "ngx-openlayers";
 import { MatTooltipModule } from "@angular/material";
+import { BridgeHistoryComponent } from './components/bridge-history/bridge-history.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { MatTooltipModule } from "@angular/material";
     GraphPinComponent,
     SensorDataHistoryComponent,
     MapViewMainComponent,
+    BridgeHistoryComponent,
   ],
   imports: [
     CommonModule,
@@ -72,6 +74,6 @@ import { MatTooltipModule } from "@angular/material";
     AngularOpenlayersModule,
     MatTooltipModule,
   ],
-  entryComponents: [VideoWindowComponent, GraphComponent],
+  entryComponents: [VideoWindowComponent, GraphComponent,BridgeHistoryComponent],
 })
 export class DashboardModule {}

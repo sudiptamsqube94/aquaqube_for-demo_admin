@@ -61,6 +61,8 @@
         <div *ngIf="sensor.sensor_type == 4" class="toggle-style" style="background-color: #94B966">
             <mat-slide-toggle (change)="getSensorId($event.checked,sensor.sensor_type)" [checked]="checked">
             </mat-slide-toggle>
+            <mat-slide-toggle (change)="getSensorId($event.checked,sensor.sensor_type)" [checked]="checked">
+            </mat-slide-toggle>
             <button mat-icon-button class="pin-logo" (click)="pinSensorType(sensor.sensor_type)"></button>
         </div>
     </div>
