@@ -7,6 +7,7 @@ import {
   customerSupport,
   segment,
   Notifications,
+  Data1,
 } from "./model/customerDashboard";
 import { Customer } from "../admin-panel/model/customermodel";
 @Injectable({
@@ -114,5 +115,8 @@ export class DashbordMainService {
   }
   getMapData(): Observable<any> {
     return this.http.post<any>(environment.getMapData, {});
+  }
+  getBridgeHistory(data: Data1): Observable<any>{
+    return this.http.post(environment.getHistoryData, data)
   }
 }

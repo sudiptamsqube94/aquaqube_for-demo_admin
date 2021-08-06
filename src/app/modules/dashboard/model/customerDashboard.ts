@@ -84,3 +84,26 @@ export interface Nodes {
   gateway: number;
   notification_count: number;
 }
+
+export interface historyy {
+  result: string;
+  table: number;
+  _start: Date;
+  _stop: Date;
+  _time: Date;
+  _value: number;
+  _field: string;
+  _measurement: string;
+  customer_id: string;
+  latitude: string;
+  longitude: string;
+  mac_address: string;
+  node_uid: string;
+  sensor: string;
+  sensor_type: string;
+  sensor_type_name: string;
+}
+export interface Data1{
+  node_uid?: string;
+  sensor_type?: number;
+}

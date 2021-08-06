@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
-import { MatDialog } from "@angular/material";
+import { MatDialog, MatDialogRef } from "@angular/material";
 import { Router } from "@angular/router";
 import { MapComponent, SourceVectorComponent } from "ngx-openlayers";
 import * as ol from "openlayers";
@@ -26,14 +26,24 @@ export class MapViewMainComponent implements OnInit, AfterViewInit {
   @ViewChild("onTripMarkersSource", { static: false })
   onTripMarkersSource: SourceVectorComponent;
   @ViewChild("accidentMarkersSource", { static: false })
-  checked: boolean = true;
   accidentMarkersSource: SourceVectorComponent;
+  checked: boolean = false;
+  graphPopup: MatDialogRef<BridgeHistoryComponent>;
   constructor(private dashbordmainService: DashbordMainService,  private router: Router,    private dialog: MatDialog,) {
     this.displayTooltip = this.displayTooltip.bind(this);
   }
 
   ngAfterViewInit(){
-
+    var tooltip = document.getElementById("tooltip");
+    this.map.instance.addOverlay(
+      new ol.Overlay({
+        element: tooltip,
+        offset: [10, 0],
+        positioning: "bottom-left",
+        id: "tooltip",
+      })
+    )
+    this.map.instance.on("pointermove", this.displayTooltip);
   }
   ngOnInit() {
     this.componentActive = true;
@@ -48,16 +58,6 @@ export class MapViewMainComponent implements OnInit, AfterViewInit {
     this.pollingData1$= this.pollingData$
     this.pollingData$.subscribe((data) => {
       if(!!data){
-        var tooltip = document.getElementById("tooltip");
-        this.map.instance.addOverlay(
-          new ol.Overlay({
-            element: tooltip,
-            offset: [5, 0],
-            positioning: "bottom-left",
-            id: "tooltip",
-          })
-        )
-        this.map.instance.on("pointermove", this.displayTooltip);
         this.ontripFeatures = [];
         this.accidentFeatures = [];
         if (!!data && data.length > 0) {
@@ -68,7 +68,7 @@ export class MapViewMainComponent implements OnInit, AfterViewInit {
           this.map.instance.setView(
             new ol.View({
               center: centerLongitudeLatitude,
-              zoom: 15,
+              zoom: 11,
             })
           );
           data.forEach(element=> {
@@ -79,7 +79,7 @@ export class MapViewMainComponent implements OnInit, AfterViewInit {
               ]);
               var SensorTitle = ""
               element.sensors.forEach((e, index)=> {
-                  SensorTitle= SensorTitle +e.sensor_name + ":" + e.current_reading +"<br>"
+                  SensorTitle= SensorTitle +e.sensor_name + " : <b>" +e.current_reading+"</b><br>"
               })
               var feature = new ol.Feature({
                 geometry: new ol.geom.Point(addMarker),
@@ -89,8 +89,10 @@ export class MapViewMainComponent implements OnInit, AfterViewInit {
               feature.setId(element.uid);
               feature.setProperties([{ router: this.router }]);
               if 
-                (!!element.sensors.find(m=> m.current_reading < m.sensor_threshold_min || m.current_reading < m.sensor_threshold_max)
+                (!!element.sensors.find(m=> (m.current_reading < m.sensor_threshold_min) || (m.current_reading > m.sensor_threshold_max))
               ) {
+                console.log(element.sensors.find(m=> (m.current_reading < m.sensor_threshold_min) || (m.current_reading > m.sensor_threshold_max)));
+                
                 this.accidentFeatures.push(feature);  
                 console.log("acc", this.accidentFeatures);
                      
@@ -103,6 +105,8 @@ export class MapViewMainComponent implements OnInit, AfterViewInit {
           })
           this.onTripMarkersSource.instance.clear();
           this.accidentMarkersSource.instance.clear();
+          console.log(this.accidentMarkersSource);
+          
           if (!!this.ontripFeatures) {
             this.onTripMarkersSource.instance.addFeatures(
               this.ontripFeatures
@@ -182,17 +186,18 @@ export class MapViewMainComponent implements OnInit, AfterViewInit {
   history(data: Nodes,toggle){
     if (toggle == true) {
       this.checked = true;
-      var p = this.dialog.open(BridgeHistoryComponent, {
-        //data: value.toLowerCase(),
+      this.graphPopup = this.dialog.open(BridgeHistoryComponent, {
         data: {
-          node_id: data.node_id,
+          node_uid: data.uid,
           sensor_type: null
         },
         width: "90%",
         disableClose: true,
       });
-      p.afterClosed().subscribe((result) => {
+      this.graphPopup.afterClosed().subscribe((result) => {
         if (result) {
+          console.log("call");
+          
           this.checked = false;
         }
       });

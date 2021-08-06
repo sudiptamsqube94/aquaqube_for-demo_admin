@@ -1,1 +1,53 @@
-<p>bridge-history works!</p>
+<div
+  fxLayout="row"
+  fxLayoutAlign="start center"
+  class="button-filter-container"
+>
+  <div fxFlex="95">
+    <div class="section-title primary-text">bridge history</div>
+  </div>
+  <div fxFlex="5">
+    <button mat-icon-button type="button" (click)="cancel()" color="primary">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
+</div>
+<div>
+    <table
+      mat-table
+      matSort
+      #DetailsSort="matSort"
+      [dataSource]="dataSource"
+      class="mat-elevation-z5 rounded-table"
+    >
+      <ng-container matColumnDef="node_uid">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Node Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.node_uid }}</td>
+      </ng-container>
+      <ng-container matColumnDef="sensor">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Sensor</th>
+        <td mat-cell *matCellDef="let element">{{ element.sensor }}</td>
+      </ng-container>
+      <ng-container matColumnDef="_value">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Value</th>
+        <td mat-cell *matCellDef="let element">{{ element._value }}</td>
+      </ng-container>
+      <ng-container matColumnDef="_time">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
+        <td mat-cell *matCellDef="let element">{{ element._time | date: 'medium'}}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+
+    ></tr>
+      </table>
+      <mat-paginator
+      #DetailsPaginator
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20, 50]"
+      [showFirstLastButtons]="true"
+      class="mat-elevation-z5"
+    ></mat-paginator>
+      </div>

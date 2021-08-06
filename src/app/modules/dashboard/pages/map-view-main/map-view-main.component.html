@@ -3,7 +3,7 @@
       <div fxFlex="calc(100% - 10px)">
         <mat-card class="mapcard">
           <mat-card-content [style.height.%]="100">
-            <aol-map #map [width]="'100%'" [height]="'100%'" (onSingleClick)="mapOnClick($event)">
+            <aol-map #map [width]="'100%'" [height]="'100%'" >
               <aol-interaction-default></aol-interaction-default>
               <aol-control-defaults></aol-control-defaults>
               <aol-view [zoom]="zoom">
@@ -59,9 +59,9 @@
                               </div>
                               <div fxFlex="55">
                                   <div>
-                                      <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 1"  class="color-temp"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_sensor || sensor.current_sensor >  sensor.sensor_threshold_max)" >{{sensor.current_reading | tempPipe}}</span></div>
-                                      <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 6" class="color-ph"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_sensor || sensor.current_sensor >  sensor.sensor_threshold_max)" >{{sensor.current_reading}} Amp</span></div>
-                                      <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 3" class="color-do"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_sensor || sensor.current_sensor >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div>
+                                      <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 1"  class="color-temp"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading | tempPipe}}</span></div>
+                                      <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 6" class="color-ph"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}} Amp</span></div>
+                                      <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 3" class="color-do"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div>
                                       <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 4" class="color-alcohol"><span [class.activeRed]=" (sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div>
                                       <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 2" class="color-ph"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)">{{sensor.current_reading}}%</span></div>
                                       <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 5" class="color-humidity" ><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div><br>
@@ -70,7 +70,7 @@
                               </div>
                           </div>
                           <div class="toggle-style" style="background-color: #94B966" [style.marginTop.px]="10" [style.width.%]="100">
-                            <mat-slide-toggle (change)="history(data, $event.checked,sensor.sensor_type)" [checked]="checked">
+                            <mat-slide-toggle (change)="history(data, $event.checked)"  [checked]="checked">
                               Show threshold bridge history
                             </mat-slide-toggle>
                         </div>

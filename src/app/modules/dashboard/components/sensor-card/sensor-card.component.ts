@@ -17,6 +17,7 @@ import { untilDestroyed } from "ngx-take-until-destroy";
 import { sensor } from "src/app/modules/admin-panel/model/gateway";
 import { sensorData } from "../../model/customerDashboard";
 import { Sensor } from "src/app/modules/admin-panel/model/customermodel";
+import { BridgeHistoryComponent } from "../bridge-history/bridge-history.component";
 
 @Component({
   selector: "app-sensor-card",
@@ -32,9 +33,11 @@ export class SensorCardComponent implements OnInit {
   forGraphData: graphView;
   forGraphPin: any;
   graphPopup: MatDialogRef<GraphComponent>;
+  graphPopup2: MatDialogRef<BridgeHistoryComponent>
   formattedData: SensorData[] = [];
   graphData: any[][];
   checked: boolean = false;
+  checked1: boolean = false;
   newReadding: SensorData;
   payload: any[] = [];
   currentTime: any;
@@ -98,6 +101,8 @@ export class SensorCardComponent implements OnInit {
       });
       this.graphPopup.afterClosed().subscribe((result) => {
         if (result) {
+          console.log("call");
+          
           this.checked = false;
         }
       });
@@ -116,6 +121,27 @@ export class SensorCardComponent implements OnInit {
   ngOnDestroy() {}
   payloadFormater(value) {
     return "'" + value + "'";
+  }
+  getHistory(toggle: boolean, value: number){
+    if (toggle == true) {
+      this.sensorType = value;
+      this.checked1 = true;
+      this.graphPopup2 = this.dialog.open(BridgeHistoryComponent, {
+        data: {
+          node_uid: this.nodeUid,
+          sensor_type: value
+        },
+        width: "90%",
+        disableClose: true,
+      });
+      this.graphPopup2.afterClosed().subscribe((result) => {
+        if (result) {
+          console.log("call");
+          
+          this.checked1 = false;
+        }
+      });
+    }
   }
 }
 

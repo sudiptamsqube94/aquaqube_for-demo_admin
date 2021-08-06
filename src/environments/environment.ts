@@ -87,6 +87,7 @@ export const environment = {
     baseServiceUrl + "qubematics/device/getsensorthresold/",
   getData: baseServiceUrl + "qubematics/device/getsensordata/",
   getMapData: baseServiceUrl + "qubematics/device/nodewithsensordata/",
+  getHistoryData: baseServiceUrl + "qubematics/device/nodenotification/"
 };
 
 /*
