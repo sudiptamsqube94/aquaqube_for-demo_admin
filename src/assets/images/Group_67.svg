@@ -12,6 +12,6 @@
    <path id="svg_8" stroke-width="0.3px" stroke="#28bacf" fill="#28bacf" d="m15.32396,36.16401c-1.376,0 -2.753,0.043 -4.125,-0.027c-0.37,-0.019 -0.723,-0.375 -1.083,-0.577c0.374,-0.192 0.745,-0.543 1.122,-0.549q4.19,-0.07 8.382,0c0.34,0.005 0.676,0.339 1.014,0.521c-0.351,0.211 -0.694,0.585 -1.055,0.6c-1.416,0.073 -2.837,0.032 -4.255,0.032z" class="a"/>
    <path id="svg_9" stroke-width="0.3px" stroke="#28bacf" fill="#28bacf" d="m41.14901,65.99906l-0.121,-0.115c0.035,-0.013 0.073,-0.041 0.1,-0.035a1.532,1.532 0 0 1 0.2,0.072c-0.055,0.027 -0.116,0.053 -0.179,0.078z" class="a"/>
   </g>
-  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_10" y="56.08701" x="11.08698" stroke-width="0" stroke="#000" fill="#000000">Ph</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_10" y="56.08701" x="11.08698" stroke-width="0" stroke="#000" fill="#000000">pH</text>
  </g>
 </svg>

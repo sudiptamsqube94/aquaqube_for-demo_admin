@@ -82,7 +82,7 @@ export class MapViewMainComponent implements OnInit, AfterViewInit, OnDestroy {
               ]);
               var SensorTitle = ""
               element.sensors.forEach((e, index)=> {
-                  SensorTitle= SensorTitle +e.sensor_name + " : <b>" +e.current_reading+"</b><br>"
+                  SensorTitle= SensorTitle +e.sensor_type_name + " : <b>" +e.current_reading+"</b><br>"
               })
               var feature = new ol.Feature({
                 geometry: new ol.geom.Point(addMarker),

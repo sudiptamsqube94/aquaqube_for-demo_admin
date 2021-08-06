@@ -64,6 +64,7 @@ export interface Sensor {
   node: number;
   current_reading?: number;
   reading_time: Date;
+  sensor_type_name?: string;
 }
 
 export interface Nodes {
