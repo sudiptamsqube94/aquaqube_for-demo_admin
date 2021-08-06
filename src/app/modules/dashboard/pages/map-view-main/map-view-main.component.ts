@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material";
 import { Router } from "@angular/router";
 import { MapComponent, SourceVectorComponent } from "ngx-openlayers";
@@ -14,7 +14,7 @@ import { Nodes } from "../../model/customerDashboard";
   templateUrl: "./map-view-main.component.html",
   styleUrls: ["./map-view-main.component.scss"],
 })
-export class MapViewMainComponent implements OnInit, AfterViewInit {
+export class MapViewMainComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("fullScreen", { static: false }) divRef: any;
   public zoom = 10;
   @ViewChild("map", { static: false }) map: MapComponent;
@@ -31,6 +31,9 @@ export class MapViewMainComponent implements OnInit, AfterViewInit {
   graphPopup: MatDialogRef<BridgeHistoryComponent>;
   constructor(private dashbordmainService: DashbordMainService,  private router: Router,    private dialog: MatDialog,) {
     this.displayTooltip = this.displayTooltip.bind(this);
+  }
+  ngOnDestroy(){
+    this.componentActive= false
   }
 
   ngAfterViewInit(){
@@ -68,7 +71,7 @@ export class MapViewMainComponent implements OnInit, AfterViewInit {
           this.map.instance.setView(
             new ol.View({
               center: centerLongitudeLatitude,
-              zoom: 11,
+              zoom: 10,
             })
           );
           data.forEach(element=> {
@@ -202,6 +205,9 @@ export class MapViewMainComponent implements OnInit, AfterViewInit {
         }
       });
     }
+  }
+  mapview(){
+    this.router.navigate(["dashboard"]);
   }
 
 }

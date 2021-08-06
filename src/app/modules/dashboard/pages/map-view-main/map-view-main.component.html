@@ -1,8 +1,13 @@
-<div fxLayout="row" [style.height.%]="100" [style.width.%]="100">
-    <div fxFlex="calc(75% - 10px)">
-      <div fxFlex="calc(100% - 10px)">
-        <mat-card class="mapcard">
-          <mat-card-content [style.height.%]="100">
+<!-- <div fxLayout="column" [style.height.%]="100" [style.width.%]="100">
+<div fxLayout="row" fxLayoutAlign="end center">
+  <div fxFlex="20">
+      <button mat-raised-button (click)="mapview()" class="button-view">Go To Dashboard</button>
+  </div>
+</div>
+<div fxLayout="row" [style.width.%]="100">
+    <div fxFlex="calc(75% - 10px)" [style.height.%]="92">
+        <mat-card class="mapcard" [style.margin.px]="10">
+          <mat-card-content [style.height.%]="95">
             <aol-map #map [width]="'100%'" [height]="'100%'" >
               <aol-interaction-default></aol-interaction-default>
               <aol-control-defaults></aol-control-defaults>
@@ -33,15 +38,14 @@
             </aol-map>
           </mat-card-content>
         </mat-card>
-      </div>
     </div>
-    <div fxFlex="calc(19% - 10px)" class="no-margin overFlow">
-      <div fxLayout="column" fxLayoutAlign="start start">
-          <div  fxFlex *ngFor="let data of (pollingData1$ | async)" [style.margin.px]="10"  [style.width.%]="100">
+    <div fxFlex="calc(19% - 10px)" [style.height.%]="100">
+      <div fxLayout="column" fxLayoutAlign="start start" [style.height.%]="100" class="no-margin overFlow">
+          <div *ngFor="let data of (pollingData1$ | async)" [style.marginBottom.px]="10"  [style.width.%]="100">
               <mat-card class="mapcard" (click)="cardClick(data)">
-                    <div fxFlex="0 1 calc(100% - 3px)" fxLayout="column" fxLayoutGap="3px" fxLayoutAlign="start start">
-                      <div fxFlex="0 1 calc(40%)" [style.fontSize.%]="85" fxLayoutAlign="start start">
-                        <b>NODE: {{data.uid}}</b>
+                    <div fxFlex="0 1 calc(100% - 3px)" fxLayout="column" fxLayoutGap="3px" fxLayoutAlign="center center">
+                      <div fxFlex="0 1 calc(40%)" class="nd" [style.width.%]="100" [style.fontSize.%]="85" fxLayoutAlign="center center">
+                        <b>NODE: <b>{{data.uid}}</b></b>
                       </div>
                       <div fxFlex="0 1 calc(100%)" [style.width.%]="100" [style.fontSize.%]="120" fxLayoutAlign="center center" >
                         <mat-card-content [style.width.%]="100">
@@ -79,8 +83,179 @@
                     </div>
                 </mat-card>
           </div>
+          <div  fxFlex *ngFor="let data of (pollingData1$ | async)" [style.marginBottom.px]="10"  [style.width.%]="100">
+            <mat-card class="mapcard" (click)="cardClick(data)">
+                  <div fxFlex="0 1 calc(100% - 3px)" fxLayout="column" fxLayoutGap="3px" fxLayoutAlign="center center">
+                    <div fxFlex="0 1 calc(40%)" class="nd" [style.width.%]="100" [style.fontSize.%]="85" fxLayoutAlign="center center">
+                      <b>NODE: <b>{{data.uid}}</b></b>
+                    </div>
+                    <div fxFlex="0 1 calc(100%)" [style.width.%]="100" [style.fontSize.%]="120" fxLayoutAlign="center center" >
+                      <mat-card-content [style.width.%]="100">
+                        <div fxLayout="row" class="image_container" *ngFor="let sensor of data.sensors">
+                            <div fxFlex="45">
+                                <div class="sensor-style">
+                                    <div [class.temp_sensor]="sensor.sensor_type == 1"
+                                        [class.ph_sensor]="sensor.sensor_type == 6"
+                                        [class.ph_sensor]="sensor.sensor_type == 2"
+                                        [class.humidity_sensor]="sensor.sensor_type == 5"
+                                        [class.alcohol_sensor]="sensor.sensor_type == 4"
+                                        [class.do_sensor]="sensor.sensor_type == 3"
+                                        [style.width.px]="40" [style.height.px]="40"></div>
+                                </div>
+                            </div>
+                            <div fxFlex="55">
+                                <div>
+                                    <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 1"  class="color-temp"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading | tempPipe}}</span></div>
+                                    <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 6" class="color-ph"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}} Amp</span></div>
+                                    <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 3" class="color-do"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div>
+                                    <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 4" class="color-alcohol"><span [class.activeRed]=" (sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div>
+                                    <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 2" class="color-ph"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)">{{sensor.current_reading}}%</span></div>
+                                    <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 5" class="color-humidity" ><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div><br>
+                                    <span>{{sensor.reading_time | date:'medium'}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="toggle-style" style="background-color: #94B966" [style.marginTop.px]="10" [style.width.%]="100">
+                          <mat-slide-toggle (change)="history(data, $event.checked)"  [checked]="checked">
+                            Show threshold bridge history
+                          </mat-slide-toggle>
+                      </div>
+                    </mat-card-content>
+                    </div>
+                  </div>
+              </mat-card>
+        </div>
+        <div  fxFlex *ngFor="let data of (pollingData1$ | async)" [style.marginBottom.px]="10"  [style.width.%]="100">
+          <mat-card class="mapcard" (click)="cardClick(data)">
+                <div fxFlex="0 1 calc(100% - 3px)" fxLayout="column" fxLayoutGap="3px" fxLayoutAlign="center center">
+                  <div fxFlex="0 1 calc(40%)" class="nd" [style.width.%]="100" [style.fontSize.%]="85" fxLayoutAlign="center center">
+                    <b>NODE: <b>{{data.uid}}</b></b>
+                  </div>
+                  <div fxFlex="0 1 calc(100%)" [style.width.%]="100" [style.fontSize.%]="120" fxLayoutAlign="center center" >
+                    <mat-card-content [style.width.%]="100">
+                      <div fxLayout="row" class="image_container" *ngFor="let sensor of data.sensors">
+                          <div fxFlex="45">
+                              <div class="sensor-style">
+                                  <div [class.temp_sensor]="sensor.sensor_type == 1"
+                                      [class.ph_sensor]="sensor.sensor_type == 6"
+                                      [class.ph_sensor]="sensor.sensor_type == 2"
+                                      [class.humidity_sensor]="sensor.sensor_type == 5"
+                                      [class.alcohol_sensor]="sensor.sensor_type == 4"
+                                      [class.do_sensor]="sensor.sensor_type == 3"
+                                      [style.width.px]="40" [style.height.px]="40"></div>
+                              </div>
+                          </div>
+                          <div fxFlex="55">
+                              <div>
+                                  <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 1"  class="color-temp"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading | tempPipe}}</span></div>
+                                  <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 6" class="color-ph"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}} Amp</span></div>
+                                  <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 3" class="color-do"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div>
+                                  <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 4" class="color-alcohol"><span [class.activeRed]=" (sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div>
+                                  <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 2" class="color-ph"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)">{{sensor.current_reading}}%</span></div>
+                                  <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 5" class="color-humidity" ><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div><br>
+                                  <span>{{sensor.reading_time | date:'medium'}}</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="toggle-style" style="background-color: #94B966" [style.marginTop.px]="10" [style.width.%]="100">
+                        <mat-slide-toggle (change)="history(data, $event.checked)"  [checked]="checked">
+                          Show threshold bridge history
+                        </mat-slide-toggle>
+                    </div>
+                  </mat-card-content>
+                  </div>
+                </div>
+            </mat-card>
+      </div>
         </div>
         </div>
+  </div> -->
+  <div fxLayout="column" fxLayoutAlign=" none" [style.height.%]="100">
+    <div fxLayout="row" fxLayoutAlign="end center" >
+      <div fxFlex="20">
+        <button mat-raised-button (click)="mapview()" class="button-view">Go To Dashboard</button>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="none" >
+      <div fxFlex="80" [style.height.%]="90">
+        <mat-card class="mapcard" [style.margin.px]="10">
+          <mat-card-content>
+            <aol-map #map [width]="'100%'" [height]="'100%'" >
+              <aol-interaction-default></aol-interaction-default>
+              <aol-control-defaults></aol-control-defaults>
+              <aol-view [zoom]="zoom">
+                <aol-coordinate [x]="88.4386" [y]="22.625" [srid]="'EPSG:4326'"></aol-coordinate>
+              </aol-view>
+              <aol-layer-tile>
+                <aol-source-osm></aol-source-osm>
+              </aol-layer-tile>
+              <aol-layer-vector>
+                <aol-source-vector #onTripMarkersSource [wrapX]="false">
+                  <aol-style>
+                    <aol-style-icon [anchor]="[0.5, 0.9]" [anchorXUnits]="'fraction'" [anchorYUnits]="'fraction'"
+                      [opacity]="1" [src]="'./assets/OnTrip.svg'">
+                    </aol-style-icon>
+                  </aol-style>
+                </aol-source-vector>
+              </aol-layer-vector>
+              <aol-layer-vector>
+              <aol-source-vector #accidentMarkersSource [wrapX]="false">
+                <aol-style>
+                  <aol-style-icon [anchor]="[0.5, 0.9]" [anchorXUnits]="'fraction'" [anchorYUnits]="'fraction'"
+                    [opacity]="1" [src]="'./assets/Accident_op1.svg'">
+                  </aol-style-icon>
+                </aol-style>
+              </aol-source-vector> 
+              </aol-layer-vector>
+            </aol-map>
+          </mat-card-content>
+        </mat-card>
+    </div>
+    <div fxFlex="20" class="overFlow" [style.height.%]="80">
+      <div  *ngFor="let data of (pollingData1$ | async)" [style.marginBottom.px]="10"  [style.width.%]="100">
+        <mat-card class="mapcard" (click)="cardClick(data)">
+              <div fxFlex="0 1 calc(100% - 3px)" fxLayout="column" fxLayoutGap="3px" fxLayoutAlign="center center">
+                <div fxFlex="0 1 calc(40%)" class="nd" [style.width.%]="100" [style.fontSize.%]="85" fxLayoutAlign="center center">
+                  <b>NODE: <b>{{data.uid}}</b></b>
+                </div>
+                <div fxFlex="0 1 calc(100%)" [style.width.%]="100" [style.fontSize.%]="120" fxLayoutAlign="center center" >
+                  <mat-card-content [style.width.%]="100">
+                    <div fxLayout="row" class="image_container" *ngFor="let sensor of data.sensors">
+                        <div fxFlex="45">
+                            <div class="sensor-style">
+                                <div [class.temp_sensor]="sensor.sensor_type == 1"
+                                    [class.ph_sensor]="sensor.sensor_type == 6"
+                                    [class.ph_sensor]="sensor.sensor_type == 2"
+                                    [class.humidity_sensor]="sensor.sensor_type == 5"
+                                    [class.alcohol_sensor]="sensor.sensor_type == 4"
+                                    [class.do_sensor]="sensor.sensor_type == 3"
+                                    [style.width.px]="40" [style.height.px]="40"></div>
+                            </div>
+                        </div>
+                        <div fxFlex="55">
+                            <div>
+                                <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 1"  class="color-temp"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading | tempPipe}}</span></div>
+                                <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 6" class="color-ph"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}} Amp</span></div>
+                                <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 3" class="color-do"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div>
+                                <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 4" class="color-alcohol"><span [class.activeRed]=" (sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div>
+                                <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 2" class="color-ph"><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)">{{sensor.current_reading}}%</span></div>
+                                <div *ngIf="!!sensor.current_reading && sensor.sensor_type == 5" class="color-humidity" ><span [class.activeRed]="(sensor.sensor_threshold_min > sensor.current_reading || sensor.current_reading >  sensor.sensor_threshold_max)" >{{sensor.current_reading}}%</span></div><br>
+                                <span>{{sensor.reading_time | date:'medium'}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toggle-style" style="background-color: #94B966" [style.marginTop.px]="10" [style.width.%]="100">
+                      <mat-slide-toggle (change)="history(data, $event.checked)"  [checked]="checked">
+                        Show threshold bridge history
+                      </mat-slide-toggle>
+                  </div>
+                </mat-card-content>
+                </div>
+                </div>
+                </mat-card>
+      </div>
+    </div>
+    </div>
   </div>
     <div id="tooltip" class="tooltip-style">
       <div class="tooltip-header"></div>
