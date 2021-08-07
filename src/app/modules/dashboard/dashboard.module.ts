@@ -33,7 +33,7 @@ import { hammerjs } from "hammerjs";
 import { SensorDataHistoryComponent } from "./components/sensor-data-history/sensor-data-history.component";
 import { MapViewMainComponent } from "./pages/map-view-main/map-view-main.component";
 import { AngularOpenlayersModule } from "ngx-openlayers";
-import { MatPaginatorModule, MatSortModule, MatTooltipModule } from "@angular/material";
+import { MatIconModule, MatPaginatorModule, MatSortModule, MatTooltipModule } from "@angular/material";
 import { BridgeHistoryComponent } from './components/bridge-history/bridge-history.component';
 
 @NgModule({
@@ -75,6 +75,7 @@ import { BridgeHistoryComponent } from './components/bridge-history/bridge-histo
     MatTooltipModule,
     MatPaginatorModule,
     MatSortModule,
+    MatIconModule,
   ],
   entryComponents: [VideoWindowComponent, GraphComponent,BridgeHistoryComponent],
 })

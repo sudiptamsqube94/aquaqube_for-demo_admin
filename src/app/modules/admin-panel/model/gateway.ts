@@ -21,6 +21,7 @@ export interface node{
     industry_type ?: number,
     latitude ?: number,
     longitude ?: number
+    sensor_desc?: string;
 }
 
 export interface sensor {

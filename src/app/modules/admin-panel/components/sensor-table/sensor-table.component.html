@@ -27,6 +27,10 @@
                     <span *ngIf="element.sensor_type == 4">Alcohol</span>
                 </td>
             </ng-container>
+            <ng-container matColumnDef="sensor_desc">
+                <th mat-header-cell *matHeaderCellDef>Serial Number</th>
+                <td mat-cell *matCellDef="let element">{{element.sensor_desc}}</td>
+            </ng-container>
             <ng-container matColumnDef="sensor_model">
                 <th mat-header-cell *matHeaderCellDef>Model</th>
                 <td mat-cell *matCellDef="let element">{{element.sensor_model}}</td>

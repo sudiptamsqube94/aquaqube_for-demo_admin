@@ -17,7 +17,7 @@ export class SensorTableComponent implements OnInit {
   selectedSensor : sensor = {
     sensor_id : 0
   }
-  displayedCloumns : string[] = ['select', 'sensor_type', 'sensor_model', 'sensor_make', 'sensor_status', 'sensor_threshold_max', 'sensor_threshold_min']
+  displayedCloumns : string[] = ['select','sensor_desc', 'sensor_type', 'sensor_model', 'sensor_make', 'sensor_status', 'sensor_threshold_max', 'sensor_threshold_min']
   constructor(private adminPanelService: AdminPanelMainService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {

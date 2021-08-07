@@ -116,9 +116,13 @@ export class DashboardMainComponent implements OnInit {
   mapview() {
     this.router.navigate(["map-view"]);
   }
+  home(){
+    this.router.navigate(['admin-panel'])
+  }
 }
 
 export interface SensorData {
   name: Date;
   value: number;
 }
+

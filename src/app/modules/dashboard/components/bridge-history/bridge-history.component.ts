@@ -46,5 +46,8 @@ export class BridgeHistoryComponent implements OnInit {
   cancel(){
     this.dialogRef.close("result");
   }
+  convert(data: historyy): boolean{
+    return data._value > +data.max_value? true: false;
+  }
 
 }

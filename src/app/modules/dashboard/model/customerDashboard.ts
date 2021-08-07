@@ -103,6 +103,8 @@ export interface historyy {
   sensor: string;
   sensor_type: string;
   sensor_type_name: string;
+  max_value: string
+  min_value: string
 }
 export interface Data1{
   node_uid?: string;

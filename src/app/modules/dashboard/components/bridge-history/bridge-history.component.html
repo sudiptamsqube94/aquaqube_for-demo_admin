@@ -1,7 +1,7 @@
 <div
   fxLayout="row"
   fxLayoutAlign="start center"
-  class="button-filter-container"
+  class="button-filter-container header"
 >
   <div fxFlex="95">
     <div class="section-title primary-text">Alert</div>
@@ -30,7 +30,10 @@
       </ng-container>
       <ng-container matColumnDef="_value">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Value</th>
-        <td mat-cell *matCellDef="let element">{{ element._value }}</td>
+        <td mat-cell *matCellDef="let element">{{ element._value }}
+          <mat-icon aria-hidden="false" class="redColor" *ngIf="!convert(element)">arrow_downward</mat-icon>
+          <mat-icon aria-hidden="false" class="redColor" *ngIf="convert(element)">arrow_upward</mat-icon>
+        </td>
       </ng-container>
       <ng-container matColumnDef="_time">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>

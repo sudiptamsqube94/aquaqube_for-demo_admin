@@ -27,6 +27,7 @@ export class NodeDetailsComponent implements OnInit {
     };
     this.sensorColumns = [
       {headerName : 'Model', field:'sensor_model'},
+      {headerName : 'Serial Number', field:'sensor_desc'},
       {headerName : 'Maximum', field:'sensor_threshold_max', editable:true, sortable:true, valueParser: numberParser},
       {headerName : 'Minimum', field:'sensor_threshold_min', editable:true, sortable:true, valueParser: numberParser},
     ]

@@ -212,8 +212,8 @@
         </mat-card>
     </div>
     <div fxFlex="20" class="overFlow" [style.height.%]="80">
-      <div  *ngFor="let data of (pollingData1$ | async)" [style.marginBottom.px]="10"  [style.width.%]="100">
-        <mat-card class="mapcard" (click)="cardClick(data)">
+      <div  *ngFor="let data of (pollingData1$ | async);let indexOfelement=index;" [style.marginBottom.px]="10"  [style.width.%]="100">
+        <mat-card class="mapcard"  [class.sampleMargin]="indexOfelement == lengths" (click)="cardClick(data)">
               <div fxFlex="0 1 calc(100% - 3px)" fxLayout="column" fxLayoutGap="3px" fxLayoutAlign="center center">
                 <div fxFlex="0 1 calc(40%)" class="nd" [style.width.%]="100" [style.fontSize.%]="85" fxLayoutAlign="center center">
                   <b>NODE: <b>{{data.uid}}</b></b>

@@ -29,6 +29,7 @@ export class MapViewMainComponent implements OnInit, AfterViewInit, OnDestroy {
   accidentMarkersSource: SourceVectorComponent;
   checked: boolean = false;
   graphPopup: MatDialogRef<BridgeHistoryComponent>;
+  lengths: number= 0
   constructor(private dashbordmainService: DashbordMainService,  private router: Router,    private dialog: MatDialog,) {
     this.displayTooltip = this.displayTooltip.bind(this);
   }
@@ -61,6 +62,7 @@ export class MapViewMainComponent implements OnInit, AfterViewInit, OnDestroy {
     this.pollingData1$= this.pollingData$
     this.pollingData$.subscribe((data) => {
       if(!!data){
+        this.lengths = data.length - 1;
         this.ontripFeatures = [];
         this.accidentFeatures = [];
         if (!!data && data.length > 0) {
