@@ -109,7 +109,7 @@ export class GraphComponent implements OnInit {
     },
     {
       name: "maximum",
-      value: 10,
+      value: 15,
     },
   ];
   referenceLinesDo = [
@@ -119,7 +119,7 @@ export class GraphComponent implements OnInit {
     },
     {
       name: "maximum",
-      value: 10,
+      value: 15,
     },
   ];
 

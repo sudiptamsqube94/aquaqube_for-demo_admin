@@ -32,46 +32,58 @@
     <div>
         <div *ngIf="sensor.sensor_type == 1" class="toggle-style" style="background-color: #F6A74B">
             <mat-slide-toggle (change)="getSensorId($event.checked,sensor.sensor_type)" [checked]="checked">
+            Graph
             </mat-slide-toggle>
             <button mat-icon-button class="pin-logo" (click)="pinSensorType(sensor.sensor_type)"></button>
             <mat-slide-toggle (change)="getHistory($event.checked,sensor.sensor_type)" [checked]="checked1">
+            Alert History
             </mat-slide-toggle>
         </div>
 
         <div *ngIf="sensor.sensor_type == 6" class="toggle-style" style="background-color: #28BACF">
             <mat-slide-toggle (change)="getSensorId($event.checked,sensor.sensor_type)" [checked]="checked">
+            Graph
             </mat-slide-toggle>
             <button mat-icon-button class="pin-logo" (click)="pinSensorType(sensor.sensor_type)"></button>
             <mat-slide-toggle (change)="getHistory($event.checked,sensor.sensor_type)" [checked]="checked1">
+            Alert History
             </mat-slide-toggle>
         </div>
 
         <div *ngIf="sensor.sensor_type == 5" class="toggle-style" style="background-color: #AD79B4">
             <mat-slide-toggle (change)="getSensorId($event.checked,sensor.sensor_type)" [checked]="checked">
+            Graph
             </mat-slide-toggle>
             <button mat-icon-button class="pin-logo" (click)="pinSensorType(sensor.sensor_type)"></button>
             <mat-slide-toggle (change)="getHistory($event.checked,sensor.sensor_type)" [checked]="checked1">
+            Alert History
             </mat-slide-toggle>
         </div>
         <div *ngIf="sensor.sensor_type == 2" class="toggle-style" style="background-color: #28BACF">
             <mat-slide-toggle (change)="getSensorId($event.checked,sensor.sensor_type)" [checked]="checked">
+            Graph
             </mat-slide-toggle>
             <button mat-icon-button class="pin-logo" (click)="pinSensorType(sensor.sensor_type)"></button>
             <mat-slide-toggle (change)="getHistory($event.checked,sensor.sensor_type)" [checked]="checked1">
+            Alert History
             </mat-slide-toggle>
         </div>
         <div *ngIf="sensor.sensor_type == 3" class="toggle-style" style="background-color: rgb(121, 97, 231)">
             <mat-slide-toggle (change)="getSensorId($event.checked,sensor.sensor_type)" [checked]="checked">
+            Graph
             </mat-slide-toggle>
             <button mat-icon-button class="pin-logo" (click)="pinSensorType(sensor.sensor_type)"></button>
             <mat-slide-toggle (change)="getHistory($event.checked,sensor.sensor_type)" [checked]="checked1">
+            Alert History
             </mat-slide-toggle>
         </div>
 
         <div *ngIf="sensor.sensor_type == 4" class="toggle-style" style="background-color: #94B966">
             <mat-slide-toggle (change)="getSensorId($event.checked,sensor.sensor_type)" [checked]="checked">
+                Graph
             </mat-slide-toggle>
             <mat-slide-toggle (change)="getHistory($event.checked,sensor.sensor_type)" [checked]="checked1">
+                Alert History
             </mat-slide-toggle>
             <button mat-icon-button class="pin-logo" (click)="pinSensorType(sensor.sensor_type)"></button>
         </div>
